@@ -1,0 +1,4 @@
+/*.droppable, #droppable2, #droppable3{width: 150px; height: 150px; background-color: yellow; float: left; margin: 0 10px; overflow: auto}
+h3 {margin: 0 10px}*/
+.clear {clear: both;}
+.drag {width: 10%; height: 10%; float: left; margin: 5px}

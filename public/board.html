@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Draggable - Default functionality</title>
+  <link rel="stylesheet" href="css/foundation.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <link rel="stylesheet" href="css/dragAndDrop.css">
+  <style>
+  #draggable { width: 150px; height: 150px; padding: 0.5em; }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="./js/vendor/dragAndDrop.js"></script>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <!-- This is my example client-side javascript that uses socket.io -->
+  <script src="/javascripts/clientSocket.js"></script>
+  </head>
+  <body>
+
+<section id="main-content" class="main-content">
+
+  <div class="row">
+
+   <div class="small-3 medium-4 columns">
+
+      <article id="sidebar" class="events-press-cta panel sticky">
+        <p> Cards </p>
+        <p>How we can help:
+          <ul>
+            <li>Feature it here!</li>
+            <li>Help promote it.</li>
+            <li>Review material for accuracy and mediocrity.</li>
+            <li>Stickers!</li>
+          </ul>
+
+        </p>
+        <a class="tiny button" href="#">Challenge</a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="small-7 medium-8 columns">
+
+          <div class="medium-8 columns">
+            <div id="resources">
+              <p>Resources</p>
+              <p>Resources</p>
+              <p>Resources</p>
+            </div>
+          </div>
+          <div class="medium-4 columns">
+            <div id="timer">
+              <p>Timer</p>
+            </div>
+          </div>
+
+
+          <div class="large-4 medium-4 small-4 columns">
+            <div id="forbidden">
+              <p>Forbidden</p>
+              <p>Forbidden</p>
+              <p>Forbidden</p>
+            </div>
+          </div>
+          <div class="large-4 medium-4 small-4 columns">
+            <div id="permitted">
+              <p>Permitted</p>
+              <p>Permitted</p>
+              <p>Permitted</p>
+            </div>
+          </div>
+          <div class="small-4 medium-4 large-4 columns">
+            <div id="required">
+              <p>Required</p>
+            </div>
+          </div>
+      
+    </div>
+
+  </div>
+ 
+</section>
+
+</body>

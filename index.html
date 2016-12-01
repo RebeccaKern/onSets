@@ -9,20 +9,38 @@
     <link rel="stylesheet" href="css/app.css">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
+  <link rel="stylesheet" href="css/dragAndDrop.css">
   <style>
   #draggable { width: 150px; height: 150px; padding: 0.5em; }
   </style>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-  $( function() {
-    $( ".draggable" ).draggable();
-  } );
-  </script>
-</head>
-<body>
+  <script src="js/vendor/dragAndDrop.js"></script>
+
+<script src="/socket.io/socket.io.js"></script>
+  <!-- This is my example client-side javascript that uses socket.io -->
+  <script src="/javascripts/clientSocket.js"></script>
+  </head>
+  <body>
+    <p> There are currently <span id="numPlayers">no</span> players.</p>
+    <p id="welcome"></p>  
+<div><button type="button">Add box</button></div>
+<div style="float: left;"><h3>Drop here:</h3>
+    <div class="drop1 droppable"></div>
+</div>
+<div style="float: left;"><h3>Drop here:</h3>
+    <div class="drop2 droppable"></div>
+</div>
+<div style="float: left;"><h3>Out of scope!</h3>
+    <div id="droppable2"></div>
+</div>
+<div class="clear"></div>
+<div id="cont">
+    <div class="drag">Drag me</div>
+    <div class="drag">Drag me</div>
+</div>
  
-<div class="draggable">
+<div class="drag">
   <p>Drag me around</p>
 </div>
 <div class="draggable">

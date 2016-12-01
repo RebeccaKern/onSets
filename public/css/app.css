@@ -1,0 +1,21 @@
+body {
+  overflow: hidden;
+
+  /* Internet Explorer Scroll Block */
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+#sidebar {
+  background-color: #BBB;
+  height: 100vh;
+}
+
+#game-area {
+  padding-right: 0px;
+}
+
+.card {
+  background-color: #CCC;
+  height: 50vh;
+}
