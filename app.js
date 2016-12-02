@@ -40,4 +40,19 @@ var sio =require('socket.io')(httpServer);
 // The server socket.io code is in the socketio directory.
 require('./socketio/serverSocket.js').init(sio);
 
+// var countdown = 1000; 
+// setInterval(function() {  
+//   countdown--;
+//   io.sockets.emit('timer', { countdown: countdown });
+// }, 1000);
+
+// io.sockets.on('connection', function (socket) {  
+//   socket.on('reset', function (data) {
+//     countdown = 1000;
+//     io.sockets.emit('timer', { countdown: countdown });
+//   });
+// });
+
+
+
 httpServer.listen(50000, function() {console.log('Listening on 50000');});

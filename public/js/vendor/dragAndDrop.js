@@ -1,5 +1,6 @@
-
 $( function() {
+//setTimer();
+//$('#time').append("60");
 var imgArray = new Array();
 var forbiddenArray = new Array();
 
@@ -57,10 +58,10 @@ $(function() {
     $('#droppable2').droppable();
     $('#droppable3').droppable();
 
-    $(':button').click(function() {
-        var $box = $('<div class="drag">Drag me</div>');
-        $('#cont').append($box);
-        $box.draggable(dragOptions);
-    });
+    // $(':button').click(function() {
+    //     var $box = $('<div class="drag">Drag me</div>');
+    //     $('#cont').append($box);
+    //     $box.draggable(dragOptions);
+    // });
 });
 });
