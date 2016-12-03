@@ -1,8 +1,11 @@
 exports.init = function(io) {
 	io.sockets.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
-  });
+  		socket.on('chat message', function(msg){
+    		io.emit('chat message', msg);
+  		});
+  		socket.on('evil', function(finalT){
+    		io.emit('evil', finalT);
+    	});
 });
 // 	var currentPlayers = 0; // keep track of the number of players
 // 	var n = 0;

@@ -55,6 +55,8 @@
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
+    <div id="time"></div>
+    <button id="reset">Start Timer</button>
         <!-- <p>Time Left:</p>
         <p> There are currently <span id="numPlayers">no</span> players.</p>
         <div id="counter"></div>  
@@ -87,6 +89,21 @@
       socket.on('chat message', function(msg){
         $('#messages').append($('<li>').text(msg));
       });
+      $('#reset').click(function(){
+        console.log("we rollin");
+        setTimer();
+        socket.on('evil', function(finalT){
+      console.log('ontheinside');
+      console.log(finalT);
+      $('#time').append(finalT);
+    });
+        //console.log($('#time').html());
+        // socket.emit('evil', $('#time').html());
+        // socket.on('evil', function(time){
+        //   $('#time').append(time);
+        // });
+      });
+
   </script>
   <script src="js/vendor/what-input.js"></script>
   <script src="js/vendor/foundation.js"></script>

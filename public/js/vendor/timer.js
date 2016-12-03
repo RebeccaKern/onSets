@@ -6,7 +6,7 @@ function setTimer(){
 
     function timer(){
       time=time-1;
-      console.log(time);
+      //console.log(time);
       if (time <= 0)
       {
          clearInterval(counter);
@@ -24,7 +24,11 @@ function setTimer(){
     // console.log(time);
 
     // socket.on('timing', function(message) {
-    $('#counter').html(time);
+    //$('#time').html(time);
+    //console.log($('#time').html());
+    socket.emit('evil', time);
+    console.log('mom' + time);
+    
     // })
    
   //Do code for showing the number of seconds here
