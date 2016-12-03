@@ -3,6 +3,8 @@ $( function() {
 //$('#time').append("60");
 var imgArray = new Array();
 var forbiddenArray = new Array();
+var requiredArray = new Array();
+var permittedArray = new Array();
 
 imgArray[0] = new Image();
 imgArray[0].src = 'images/G.png';
@@ -48,13 +50,19 @@ $(function() {
         scope: "items",
         drop: function(e, ui) {
             var $drop = $(this);
-            var $array = this.id + 'Array';
-            console.log(this.id + 'Array');
-            console.log($array);
+            var array = eval(this.id + 'Array');
+            // console.log(this.id + 'Array');
+            // console.log(array);
+            // console.log(eval(array));
+            //console.log(window["forbiddenArray"])
+            //console.log(window[this.id + 'Array']);
             console.log(ui.draggable);
+            // $(ui.draggable).draggable({
+            //     "disabled": true
+            // }).appendTo($drop);
             $(ui.draggable).draggable({
                 "disabled": true
-            }).appendTo($drop);
+            });
             for(var i = 0;i<imgArray.length;i++)
             {
                 if (imgArray[i].className == 'drag ui-draggable ui-draggable-handle ui-draggable-disabled'){
@@ -65,8 +73,45 @@ $(function() {
             console.log(imgArray);
             console.log(forbiddenArray);
             imgArray.splice(removeIndex, 1);
-            forbiddenArray.push(imgArray[removeIndex]);
+            var n = document.getElementById(this.id);
+            // n.append(imgArray[removeIndex]);
+            array.push(imgArray[removeIndex]);
             console.log(imgArray);
+            console.log("forbidden");
+            console.log(forbiddenArray);
+            console.log(requiredArray);
+            console.log(permittedArray);
+            console.log(r);
+            //r.remove
+            console.log($("#resources"));
+            // $("#resources").addClass("peaches");
+            // console.log($("#resources:nth-child(2)").addClass("test"));
+            // console.log($("#resources :nth-child("+removeIndex+")"));
+            // $('#resources img:nth-child('+removeIndex+')').addClass("lalaloopsy");
+            //document.getElementsByClassName('.ui-draggable-disabled').remove();
+
+            // $('.ui-draggable-disabled').remove();//removeClass('drag ui-draggable ui-draggable-handle ui-draggable-disabled').addClass("needsMoved");
+            $('.ui-draggable-disabled').remove();
+            //console.log(newImg);
+            console.log(document.getElementById('resources'));
+            // for(var i = 0;i<array.length;i++)
+            // {
+            //     cube = array[i];
+            //     console.log(cube);
+            //     n.append(cube);
+            // }
+            //console.log(r);
+
+            // var image_x = document.getElementsByClassName('drag ui-draggable ui-draggable-handle ui-draggable-disabled');
+            // image_x.r.removeChild(image_x);
+            // console.log(image_x);
+            // for(var i = 0;i<imgArray.length;i++)
+            // {
+            //     cube = imgArray[i];
+            //     cube.className = "drag";
+            //     console.log(cube);
+            //     r.append(cube);
+            // }
             // console.log(imgArray[3]);
             // console.log(imgArray[3].className);
             // console.log(imgArray[3].className == 'drag ui-draggable ui-draggable-handle ui-draggable-disabled');
@@ -78,11 +123,11 @@ $(function() {
             //     "disabled": true
             // });
             // $(ui.draggable).
-            console.log(forbiddenArray);
+            
             // $(ui.draggable).draggable({
             //     forbiddenArray.push();
             // });
-            console.log($drop);
+            //console.log($drop);
         }
 
     });
