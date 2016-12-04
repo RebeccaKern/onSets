@@ -1,27 +1,17 @@
 var socket = io.connect();
-socket.on('players', function (data) {
-  console.log("this one works");
-  console.log(data);
-  $("#numPlayers").text(data.number);
-    });
 socket.on('cubes', function (data) {
-    console.log("whatever");
-    console.log(data);
-    $("#socketTest").text(data.src);
-    // updateArray = eval(data.class + 'Array');
-    // console.log(updateArray);
+
+    //update images to reflect cube movement
     var newLocation = document.getElementById(data.class);
-    console.log(document.getElementById(data.id));
-    document.getElementById(data.id).remove();
-    console.log(document.getElementById('resources'));
-    //var r = document.getElementById('resources');
     img = new Image();
     img.src = data.src;
     img.className = data.class;
     img.id = data.id;
     newLocation.append(img);
 
-
+    //remove cube image from initial position
+    document.getElementById(data.id).remove();
+   
 });
 
 // // var socket = io.connect();

@@ -1,10 +1,12 @@
 $( function() {
 
+    //initialize all arrays
     var imgArray = new Array();
     var forbiddenArray = new Array();
     var requiredArray = new Array();
     var permittedArray = new Array();
 
+    //initialize cubes in resource array
     imgArray[0] = {src:'images/G.png', id: '', class: ''};
     imgArray[1] = {src:'images/B.png', id: '', class: ''};
     imgArray[2] = {src:'images/Y.png', id: '', class: ''};
@@ -12,6 +14,7 @@ $( function() {
     imgArray[4] = {src:'images/G.png', id: '', class: ''};
     imgArray[5] = {src:'images/R.png', id: '', class: ''};
 
+    //then add them to the dom
     var r = document.getElementById('resources');
 
     for(var i = 0;i<imgArray.length;i++)
@@ -24,7 +27,7 @@ $( function() {
         r.append(img);
     }
 
-    $( function() {
+ $( function() {
     $( ".draggable" ).draggable();
   } );
 
@@ -66,13 +69,10 @@ $(function() {
 
             //use sockets to broadcast the cube that moved to all clients
             var socket = io();
-            socket.emit('cubes', movedCube);
-            
+            socket.emit('cubes', movedCube);     
         }
 
     });
-    $('#droppable2').droppable();
-    $('#droppable3').droppable();
 
 });
 
