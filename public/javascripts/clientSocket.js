@@ -7,9 +7,21 @@ socket.on('players', function (data) {
 socket.on('cubes', function (data) {
     console.log("whatever");
     console.log(data);
-    //console.log(data.forbidden);
-    //console.log(data.forbidden[0]);
-    $("#socketTest").text(data);
+    $("#socketTest").text(data.src);
+    // updateArray = eval(data.class + 'Array');
+    // console.log(updateArray);
+    var newLocation = document.getElementById(data.class);
+    console.log(document.getElementById(data.id));
+    document.getElementById(data.id).remove();
+    console.log(document.getElementById('resources'));
+    //var r = document.getElementById('resources');
+    img = new Image();
+    img.src = data.src;
+    img.className = data.class;
+    img.id = data.id;
+    newLocation.append(img);
+
+
 });
 
 // // var socket = io.connect();

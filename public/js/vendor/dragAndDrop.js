@@ -1,39 +1,30 @@
 $( function() {
-var imgArray = new Array();
-var forbiddenArray = new Array();
-var requiredArray = new Array();
-var permittedArray = new Array();
 
-imgArray[0] = new Image();
-imgArray[0].src = 'images/G.png';
+    var imgArray = new Array();
+    var forbiddenArray = new Array();
+    var requiredArray = new Array();
+    var permittedArray = new Array();
 
-imgArray[1] = new Image();
-imgArray[1].src = 'images/Prime.png';
-
-imgArray[2] = new Image();
-imgArray[2].src = 'images/Y.png';
-
-imgArray[3] = new Image();
-imgArray[3].src = 'images/R.png';
-
-imgArray[4] = new Image();
-imgArray[4].src = 'images/B.png';
-
-imgArray[5] = new Image();
-imgArray[5].src = 'images/B.png';
+    imgArray[0] = {src:'images/G.png', id: '', class: ''};
+    imgArray[1] = {src:'images/B.png', id: '', class: ''};
+    imgArray[2] = {src:'images/Y.png', id: '', class: ''};
+    imgArray[3] = {src:'images/Prime.png', id: '', class: ''};
+    imgArray[4] = {src:'images/G.png', id: '', class: ''};
+    imgArray[5] = {src:'images/R.png', id: '', class: ''};
 
     var r = document.getElementById('resources');
 
     for(var i = 0;i<imgArray.length;i++)
     {
-        cube = imgArray[i];
-        cube.className = "drag";
-        cube.id = "id"+i;
-        console.log(cube);
-        r.append(cube);
+        img = new Image();
+        img.src = imgArray[i].src;
+        img.className = "drag";
+        img.id = "num"+i
+        imgArray[i].id = "num"+i
+        r.append(img);
     }
 
-$( function() {
+    $( function() {
     $( ".draggable" ).draggable();
   } );
 
@@ -47,46 +38,36 @@ $(function() {
     $('.droppable').droppable({
         scope: "items",
         drop: function(e, ui) {
+
+            //drop the cube to a certain spot and disable dragging
             var $drop = $(this);
             var array = eval(this.id + 'Array');
             $(ui.draggable).draggable({
                 "disabled": true
             });
+
+            //find the id and then index of the cube that moved
+            elements = document.getElementsByClassName('drag ui-draggable ui-draggable-handle ui-draggable-disabled');
+            removeId = elements[0].id;
             for(var i = 0;i<imgArray.length;i++)
             {
-                if (imgArray[i].className == 'drag ui-draggable ui-draggable-handle ui-draggable-disabled'){
+                if (imgArray[i].id === removeId){
                     removeIndex = i;
                 }
             }
 
+            //use index to add cube to the appropriate array and remove from the old array
             array.push(imgArray[removeIndex]);
             imgArray.splice(removeIndex, 1);
-            var n = document.getElementById(this.id);
 
-            var cubeArrays = {resources:JSON.stringify(imgArray), forbidden:JSON.stringify(forbiddenArray), required:JSON.stringify(requiredArray), permitted:JSON.stringify(permittedArray)};
-            console.log(cubeArrays);
-            var newA = {a:"apple", b:"banana"};
-            
+            //get cube object to pass
+            movedCube = array[array.length-1];
+            movedCube.class = this.id;
+
+            //use sockets to broadcast the cube that moved to all clients
             var socket = io();
-            //socket.emit('cubes', 'Hello World');
+            socket.emit('cubes', movedCube);
             
-            console.log(imgArray);
-            console.log("forbidden");
-            console.log(forbiddenArray);
-            console.log(requiredArray);
-            console.log(permittedArray);
-
-            $('.ui-draggable-disabled').remove();
-            var passCube = {};
-            console.log(document.getElementById('resources'));
-            for(var i = 0;i<array.length;i++)
-            {
-                cube = array[i];
-                console.log(cube);
-                passCube = {newidDOM:this.id, source:cube.src, id:cube.id};
-                n.append(cube);
-            }
-            socket.emit('cubes', passCube);
         }
 
     });
@@ -94,4 +75,5 @@ $(function() {
     $('#droppable3').droppable();
 
 });
+
 });
