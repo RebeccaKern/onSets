@@ -31,6 +31,7 @@ imgArray[5].src = 'images/B.png';
     {
         cube = imgArray[i];
         cube.className = "drag";
+        cube.id = "id"+i;
         console.log(cube);
         r.append(cube);
     }
@@ -56,7 +57,7 @@ $(function() {
             // console.log(eval(array));
             //console.log(window["forbiddenArray"])
             //console.log(window[this.id + 'Array']);
-            console.log(ui.draggable);
+            //console.log(ui.draggable);
             // $(ui.draggable).draggable({
             //     "disabled": true
             // }).appendTo($drop);
@@ -69,21 +70,22 @@ $(function() {
                     removeIndex = i;
                 }
             }
-            console.log(removeIndex);
-            console.log(imgArray);
-            console.log(forbiddenArray);
+            //console.log(removeIndex);
+            //console.log(imgArray);
+            //console.log(forbiddenArray);
+            array.push(imgArray[removeIndex]);
             imgArray.splice(removeIndex, 1);
             var n = document.getElementById(this.id);
             // n.append(imgArray[removeIndex]);
-            array.push(imgArray[removeIndex]);
+
             console.log(imgArray);
             console.log("forbidden");
             console.log(forbiddenArray);
             console.log(requiredArray);
             console.log(permittedArray);
-            console.log(r);
+            //console.log(r);
             //r.remove
-            console.log($("#resources"));
+            //console.log($("#resources"));
             // $("#resources").addClass("peaches");
             // console.log($("#resources:nth-child(2)").addClass("test"));
             // console.log($("#resources :nth-child("+removeIndex+")"));
@@ -94,12 +96,12 @@ $(function() {
             $('.ui-draggable-disabled').remove();
             //console.log(newImg);
             console.log(document.getElementById('resources'));
-            // for(var i = 0;i<array.length;i++)
-            // {
-            //     cube = array[i];
-            //     console.log(cube);
-            //     n.append(cube);
-            // }
+            for(var i = 0;i<array.length;i++)
+            {
+                cube = array[i];
+                console.log(cube);
+                n.append(cube);
+            }
             //console.log(r);
 
             // var image_x = document.getElementsByClassName('drag ui-draggable ui-draggable-handle ui-draggable-disabled');
