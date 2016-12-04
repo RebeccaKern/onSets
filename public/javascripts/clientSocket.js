@@ -1,3 +1,17 @@
+var socket = io.connect();
+socket.on('players', function (data) {
+  console.log("this one works");
+  console.log(data);
+  $("#numPlayers").text(data.number);
+    });
+socket.on('cubes', function (data) {
+    console.log("whatever");
+    console.log(data);
+    //console.log(data.forbidden);
+    //console.log(data.forbidden[0]);
+    $("#socketTest").text(data);
+});
+
 // // var socket = io.connect();
 // // socket.on('players', function (data) {
 // //     console.log("this one works");

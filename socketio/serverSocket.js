@@ -1,11 +1,25 @@
 exports.init = function(io) {
+    console.log('in exports');
+    var currentPlayers = 0;
 	io.sockets.on('connection', function(socket){
-  		socket.on('chat message', function(msg){
-    		io.emit('chat message', msg);
-  		});
-  		socket.on('evil', function(finalT){
-    		io.emit('evil', finalT);
-    	});
+     ++currentPlayers;
+     socket.emit('players', { number: currentPlayers});
+     socket.broadcast.emit('players', { number: currentPlayers});
+	socket.on('chat message', function(msg){
+	   io.emit('chat message', msg);
+	});
+    socket.on('cubes', function(data){
+        socket.emit('cubes', data);
+        socket.broadcast.emit('cubes', data);
+        console.log(data);
+    });
+    socket.on('disconnect', function () {
+         --currentPlayers;
+         socket.broadcast.emit('players', { number: currentPlayers});
+     });
+  		// socket.on('evil', function(finalT){
+    // 		io.emit('evil', finalT);
+    // 	});
 });
 // 	var currentPlayers = 0; // keep track of the number of players
 // 	var n = 0;

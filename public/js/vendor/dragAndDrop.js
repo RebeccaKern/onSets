@@ -1,6 +1,4 @@
 $( function() {
-//setTimer();
-//$('#time').append("60");
 var imgArray = new Array();
 var forbiddenArray = new Array();
 var requiredArray = new Array();
@@ -24,7 +22,6 @@ imgArray[4].src = 'images/B.png';
 imgArray[5] = new Image();
 imgArray[5].src = 'images/B.png';
 
-    console.log("here");
     var r = document.getElementById('resources');
 
     for(var i = 0;i<imgArray.length;i++)
@@ -52,15 +49,6 @@ $(function() {
         drop: function(e, ui) {
             var $drop = $(this);
             var array = eval(this.id + 'Array');
-            // console.log(this.id + 'Array');
-            // console.log(array);
-            // console.log(eval(array));
-            //console.log(window["forbiddenArray"])
-            //console.log(window[this.id + 'Array']);
-            //console.log(ui.draggable);
-            // $(ui.draggable).draggable({
-            //     "disabled": true
-            // }).appendTo($drop);
             $(ui.draggable).draggable({
                 "disabled": true
             });
@@ -70,76 +58,40 @@ $(function() {
                     removeIndex = i;
                 }
             }
-            //console.log(removeIndex);
-            //console.log(imgArray);
-            //console.log(forbiddenArray);
+
             array.push(imgArray[removeIndex]);
             imgArray.splice(removeIndex, 1);
             var n = document.getElementById(this.id);
-            // n.append(imgArray[removeIndex]);
 
+            var cubeArrays = {resources:JSON.stringify(imgArray), forbidden:JSON.stringify(forbiddenArray), required:JSON.stringify(requiredArray), permitted:JSON.stringify(permittedArray)};
+            console.log(cubeArrays);
+            var newA = {a:"apple", b:"banana"};
+            
+            var socket = io();
+            //socket.emit('cubes', 'Hello World');
+            
             console.log(imgArray);
             console.log("forbidden");
             console.log(forbiddenArray);
             console.log(requiredArray);
             console.log(permittedArray);
-            //console.log(r);
-            //r.remove
-            //console.log($("#resources"));
-            // $("#resources").addClass("peaches");
-            // console.log($("#resources:nth-child(2)").addClass("test"));
-            // console.log($("#resources :nth-child("+removeIndex+")"));
-            // $('#resources img:nth-child('+removeIndex+')').addClass("lalaloopsy");
-            //document.getElementsByClassName('.ui-draggable-disabled').remove();
 
-            // $('.ui-draggable-disabled').remove();//removeClass('drag ui-draggable ui-draggable-handle ui-draggable-disabled').addClass("needsMoved");
             $('.ui-draggable-disabled').remove();
-            //console.log(newImg);
+            var passCube = {};
             console.log(document.getElementById('resources'));
             for(var i = 0;i<array.length;i++)
             {
                 cube = array[i];
                 console.log(cube);
+                passCube = {newidDOM:this.id, source:cube.src, id:cube.id};
                 n.append(cube);
             }
-            //console.log(r);
-
-            // var image_x = document.getElementsByClassName('drag ui-draggable ui-draggable-handle ui-draggable-disabled');
-            // image_x.r.removeChild(image_x);
-            // console.log(image_x);
-            // for(var i = 0;i<imgArray.length;i++)
-            // {
-            //     cube = imgArray[i];
-            //     cube.className = "drag";
-            //     console.log(cube);
-            //     r.append(cube);
-            // }
-            // console.log(imgArray[3]);
-            // console.log(imgArray[3].className);
-            // console.log(imgArray[3].className == 'drag ui-draggable ui-draggable-handle ui-draggable-disabled');
-            // console.log($('imgArray.img.drag.ui-draggable.ui-draggable-handle.ui-draggable-disabled').index());
-            // console.log(document.getElementsByClassName('drag ui-draggable ui-draggable-handle ui-draggable-disabled'));
-            //console.log(ui.draggable.context);
-            //console.log(imgArray.indexOf(img.drag.ui-draggable.ui-draggable-handle.ui-draggable-disabled));
-            // $(ui.draggable).draggable({
-            //     "disabled": true
-            // });
-            // $(ui.draggable).
-            
-            // $(ui.draggable).draggable({
-            //     forbiddenArray.push();
-            // });
-            //console.log($drop);
+            socket.emit('cubes', passCube);
         }
 
     });
     $('#droppable2').droppable();
     $('#droppable3').droppable();
 
-    // $(':button').click(function() {
-    //     var $box = $('<div class="drag">Drag me</div>');
-    //     $('#cont').append($box);
-    //     $box.draggable(dragOptions);
-    // });
 });
 });
