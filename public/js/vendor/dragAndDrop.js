@@ -1,7 +1,6 @@
 $( function() {
 
     $('#reset').click(function() {
-        console.log("we rollin for good");
         setTimer();
     });
 

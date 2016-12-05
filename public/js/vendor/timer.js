@@ -2,7 +2,6 @@ function setTimer(){
     // modified from http://stackoverflow.com/questions/1191865/code-for-a-simple-javascript-countdown-timer
   
     var time=60;
-    console.log("abcdef");
     var counter=setInterval(timer, 1000); //1000 will  run it every 1 second
 
     function timer(){
@@ -29,7 +28,6 @@ function setTimer(){
     //console.log($('#time').html());
       var socket = io();
     socket.emit('evil', time);
-    console.log('mom' + time);
     
     // })
    
