@@ -13,6 +13,11 @@ exports.init = function(io) {
         socket.broadcast.emit('cubes', data);
         console.log(data);
     });
+    socket.on('evil', function(data){
+        socket.emit('evil', data);
+        socket.broadcast.emit('evil', data);
+        console.log(data);
+    });
     socket.on('disconnect', function () {
          --currentPlayers;
          socket.broadcast.emit('players', { number: currentPlayers});

@@ -13,6 +13,12 @@ socket.on('cubes', function (data) {
     document.getElementById(data.id).remove();
    
 });
+socket.on('evil', function (data){
+    console.log('evil is happening');
+
+    var t = document.getElementById("time");
+    $(t).html(data);
+});
 
 // // var socket = io.connect();
 // // socket.on('players', function (data) {

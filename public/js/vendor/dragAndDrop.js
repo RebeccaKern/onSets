@@ -1,5 +1,10 @@
 $( function() {
 
+    $('#reset').click(function() {
+        console.log("we rollin for good");
+        setTimer();
+    });
+
     //initialize all arrays
     var imgArray = new Array();
     var forbiddenArray = new Array();

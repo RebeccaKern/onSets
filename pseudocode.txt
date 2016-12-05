@@ -1,0 +1,11 @@
+initialize images
+initialize arrays
+
+drag an image to a new spot
+    image is removed from old array and placed in new array
+    dom is updated so that image is no longer in old position, but appears in new position
+    socket emits SOMETHING
+
+    server has new position of object
+        broadcasts new position to all clients
+        clients all update based on broadcast
