@@ -4,6 +4,8 @@ $( function() {
         setTimer();
     });
 
+    drawCards();
+
     //initialize all arrays
     var imgArray = new Array();
     var forbiddenArray = new Array();
