@@ -6,6 +6,36 @@ $( function() {
 
     drawCards();
 
+    colorCubeSides = new Array();
+    numberCubeSides = new Array();
+    operationCubeSides = new Array();
+
+    operationCubeSides[0] = {src:'images/And.png', id: '', class: ''};
+    operationCubeSides[1] = {src:'images/And.png', id: '', class: ''};
+    operationCubeSides[2] = {src:'images/Or.png', id: '', class: ''};
+    operationCubeSides[3] = {src:'images/Or.png', id: '', class: ''};
+    operationCubeSides[4] = {src:'images/Prime.png', id: '', class: ''};
+    operationCubeSides[5] = {src:'images/ButNot.png', id: '', class: ''};
+
+    numberCubeSides[0] = {src:'images/1.png', id: '', class: ''};
+    numberCubeSides[1] = {src:'images/2.png', id: '', class: ''};
+    numberCubeSides[2] = {src:'images/3.png', id: '', class: ''};
+    numberCubeSides[3] = {src:'images/4.png', id: '', class: ''};
+    numberCubeSides[4] = {src:'images/5.png', id: '', class: ''};
+    numberCubeSides[5] = {src:'images/6.png', id: '', class: ''};
+
+    colorCubeSides[0] = {src:'images/B.png', id: '', class: ''};
+    colorCubeSides[1] = {src:'images/R.png', id: '', class: ''};
+    colorCubeSides[2] = {src:'images/G.png', id: '', class: ''};
+    colorCubeSides[3] = {src:'images/Y.png', id: '', class: ''};
+    colorCubeSides[4] = {src:'images/B.png', id: '', class: ''};
+    colorCubeSides[5] = {src:'images/Y.png', id: '', class: ''};
+
+
+    colorCubesArray = new Array();
+    numberCubesArray = new Array();
+    operationCubesArray = new Array();
+
     //initialize all arrays
     var imgArray = new Array();
     var forbiddenArray = new Array();
