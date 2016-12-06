@@ -1,6 +1,8 @@
 function drawCards(){
 
     var cardsArray = new Array();
+    var dealCardsArray = new Array();
+    var cardsUsed = new Array();
 
     cardsArray[0] = {src:'images/cards/G.png', id: '', class: ''};
     cardsArray[1] = {src:'images/cards/B.png', id: '', class: ''};
@@ -19,13 +21,35 @@ function drawCards(){
     cardsArray[14] = {src:'images/cards/RGY.png', id: '', class: ''};
     cardsArray[15] = {src:'images/cards/BRGY.png', id: '', class: ''};
 
+    function contains(num, cardsA){
+        console.log("here");
+        console.log(cardsA);
+        for(var i = 0;i<cardsA.length;i++){
+            console.log("inside");
+            if (cardsA[i] == num){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    while (dealCardsArray.length < 10) {
+        randomInt = Math.floor(Math.random() * 16); // modeled after https://gist.github.com/kerimdzhanov/7529623
+        if (!contains(randomInt, cardsUsed)){
+            dealCardsArray.push(cardsArray[randomInt]);
+            cardsUsed.push(randomInt);
+        }
+    }
+
+
+
     //then add them to the dom
     var c = document.getElementById('cards');
 
-    for(var i = 0;i<cardsArray.length;i++)
+    for(var i = 0;i<dealCardsArray.length;i++)
     {
         img = new Image();
-        img.src = cardsArray[i].src;
+        img.src = dealCardsArray[i].src;
         img.className = "cardImg";
         c.append(img);
     }
