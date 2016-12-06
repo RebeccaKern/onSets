@@ -6,7 +6,8 @@ $( function() {
 
     drawCards();
 
-    colorCubeSides = new Array();
+    colorCubeSides1 = new Array();
+    colorCubeSides2 = new Array();
     numberCubeSides = new Array();
     operationCubeSides = new Array();
 
@@ -24,17 +25,44 @@ $( function() {
     numberCubeSides[4] = {src:'images/5.png', id: '', class: ''};
     numberCubeSides[5] = {src:'images/6.png', id: '', class: ''};
 
-    colorCubeSides[0] = {src:'images/B.png', id: '', class: ''};
-    colorCubeSides[1] = {src:'images/R.png', id: '', class: ''};
-    colorCubeSides[2] = {src:'images/G.png', id: '', class: ''};
-    colorCubeSides[3] = {src:'images/Y.png', id: '', class: ''};
-    colorCubeSides[4] = {src:'images/B.png', id: '', class: ''};
-    colorCubeSides[5] = {src:'images/Y.png', id: '', class: ''};
+    colorCubeSides1[0] = {src:'images/B.png', id: '', class: ''};
+    colorCubeSides1[1] = {src:'images/R.png', id: '', class: ''};
+    colorCubeSides1[2] = {src:'images/G.png', id: '', class: ''};
+    colorCubeSides1[3] = {src:'images/Y.png', id: '', class: ''};
+    colorCubeSides1[4] = {src:'images/B.png', id: '', class: ''};
+    colorCubeSides1[5] = {src:'images/Y.png', id: '', class: ''};
+
+    colorCubeSides2[0] = {src:'images/B.png', id: '', class: ''};
+    colorCubeSides2[1] = {src:'images/R.png', id: '', class: ''};
+    colorCubeSides2[2] = {src:'images/G.png', id: '', class: ''};
+    colorCubeSides2[3] = {src:'images/Y.png', id: '', class: ''};
+    colorCubeSides2[4] = {src:'images/R.png', id: '', class: ''};
+    colorCubeSides2[5] = {src:'images/G.png', id: '', class: ''};
 
 
     colorCubesArray = new Array();
     numberCubesArray = new Array();
     operationCubesArray = new Array();
+
+    while (colorCubesArray.length < 4) {
+        randomInt = Math.floor(Math.random() * 6); // modeled after https://gist.github.com/kerimdzhanov/7529623
+        colorCubesArray.push(colorCubeSides1[randomInt]);
+    }
+
+    while (colorCubesArray.length < 8) {
+        randomInt = Math.floor(Math.random() * 6); // modeled after https://gist.github.com/kerimdzhanov/7529623
+        colorCubesArray.push(colorCubeSides2[randomInt]);
+    }
+
+    while (numberCubesArray.length < 3) {
+        randomInt = Math.floor(Math.random() * 6); // modeled after https://gist.github.com/kerimdzhanov/7529623
+        numberCubesArray.push(numberCubeSides[randomInt]);
+    }
+
+    while (operationCubesArray.length < 4) {
+        randomInt = Math.floor(Math.random() * 6); // modeled after https://gist.github.com/kerimdzhanov/7529623
+        operationCubesArray.push(operationCubeSides[randomInt]);
+    }
 
     //initialize all arrays
     var imgArray = new Array();
@@ -43,12 +71,22 @@ $( function() {
     var permittedArray = new Array();
 
     //initialize cubes in resource array
-    imgArray[0] = {src:'images/G.png', id: '', class: ''};
-    imgArray[1] = {src:'images/B.png', id: '', class: ''};
-    imgArray[2] = {src:'images/Y.png', id: '', class: ''};
-    imgArray[3] = {src:'images/Prime.png', id: '', class: ''};
-    imgArray[4] = {src:'images/G.png', id: '', class: ''};
-    imgArray[5] = {src:'images/R.png', id: '', class: ''};
+    // imgArray[0] = {src:'images/G.png', id: '', class: ''};
+    // imgArray[1] = {src:'images/B.png', id: '', class: ''};
+    // imgArray[2] = {src:'images/Y.png', id: '', class: ''};
+    // imgArray[3] = {src:'images/Prime.png', id: '', class: ''};
+    // imgArray[4] = {src:'images/G.png', id: '', class: ''};
+    // imgArray[5] = {src:'images/R.png', id: '', class: ''};
+
+    for(var i = 0;i<colorCubesArray.length;i++){
+        imgArray.push(colorCubesArray[i]);
+    }
+    for(var i = 0;i<numberCubesArray.length;i++){
+        imgArray.push(numberCubesArray[i]);
+    }
+    for(var i = 0;i<operationCubesArray.length;i++){
+        imgArray.push(operationCubesArray[i]);
+    }
 
     //then add them to the dom
     var r = document.getElementById('resources');
