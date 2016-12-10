@@ -5,3 +5,4 @@ h3 {margin: 0 10px}*/
 .clear {clear: both;}
 .drag {width: 13%; height: 13%; float: left; margin: 5px}
 .cardImg {width: 25%; height: 25%}
+#draggable { width: 150px; height: 150px; padding: 0.5em; }

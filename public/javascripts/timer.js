@@ -15,9 +15,6 @@ function setTimer(){
       var socket = io();
     socket.emit('evil', time);
     
-    // })
-   
-  //Do code for showing the number of seconds here
     }
 }
 
