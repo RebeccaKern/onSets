@@ -1,5 +1,7 @@
 /*.droppable, #droppable2, #droppable3{width: 150px; height: 150px; background-color: yellow; float: left; margin: 0 10px; overflow: auto}
 h3 {margin: 0 10px}*/
+
+/*idea modified from http://stackoverflow.com/questions/4574978/jquery-ui-dropping-elements-only-in-special-areas*/
 .clear {clear: both;}
-.drag {width: 10%; height: 10%; float: left; margin: 5px}
+.drag {width: 13%; height: 13%; float: left; margin: 5px}
 .cardImg {width: 25%; height: 25%}

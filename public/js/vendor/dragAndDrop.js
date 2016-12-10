@@ -101,6 +101,7 @@ $( function() {
         r.append(img);
     }
 
+//idea modified from http://stackoverflow.com/questions/4574978/jquery-ui-dropping-elements-only-in-special-areas
  $( function() {
     $( ".draggable" ).draggable();
   } );
