@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" dir="ltr">
+<html class="no-js" lang="en" dir="ltr" manifest="todo.manifest">
 
 <head>
 <head>
@@ -10,33 +10,31 @@
   <link rel="stylesheet" href="css/foundation.css">
   <link rel="stylesheet" href="css/app.css">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <!-- This is my example client-side javascript that uses socket.io -->
   <script src="/javascripts/clientSocket.js"></script>
+  <script src="/javascripts/startScreen.js"></script>
 
 <body>
 
 <h1> On-Sets </h1>
 <form>
   First name:<br>
-  <input type="text" name="firstname" value="Becca">
+  <input id="username" type="text" name="firstname" value="Becca">
   <br>
-  <input id="submitName" type="submit" value="Submit">
-  <input type="button" onclick="location.href='index.html';" value="Go to Google" />
-</form> 
+  <input type="button" id="submitButton" onclick="location.href='index.html';" value="Submit" />
+  <!-- onclick="location.href='index.html';" -->
+</form>
 
-<script>
-
-</script>
-
+<div id = "nameDisplay">
+</div>
 
 
-  <script src="js/vendor/what-input.js"></script>
-  <script src="js/vendor/foundation.js"></script>
-  <script src="js/app.js"></script>
+  <script src="javascripts/vendor/what-input.js"></script>
+  <script src="javascripts/vendor/foundation.js"></script>
+  <script src="javascripts/app.js"></script>
 </body>
 
 </html>
