@@ -7,7 +7,7 @@ $( function() {
     $('#dealCards').click(function() {
       console.log("here");
       drawCards();
-      $('#dealCards').hide();
+
     });
 
     $('#rollCubes').click(function() {

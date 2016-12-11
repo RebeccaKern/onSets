@@ -22,6 +22,7 @@ socket.on('evil', function (data){
 });
 
 socket.on('cardsDealt', function (data){
+    $('#dealCards').hide();
     console.log("we are on this side but maybe not working?");
     var c = document.getElementById('cards');
 
