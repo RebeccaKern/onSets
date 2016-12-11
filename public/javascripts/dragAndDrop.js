@@ -12,8 +12,6 @@ function rollCubes() {
     operationCubeSides[4] = {src:'images/Prime.png', id: '', class: ''};
     operationCubeSides[5] = {src:'images/ButNot.png', id: '', class: ''};
 
-    console.log(operationCubeSides[0] == operationCubeSides[0]);
-
     numberCubeSides[0] = {src:'images/1.png', id: '', class: ''};
     numberCubeSides[1] = {src:'images/2.png', id: '', class: ''};
     numberCubeSides[2] = {src:'images/3.png', id: '', class: ''};
@@ -27,12 +25,6 @@ function rollCubes() {
     colorCubeSides1[3] = {src:'images/Y.png', id: '', class: ''};
     colorCubeSides1[4] = {src:'images/B.png', id: '', class: ''};
     colorCubeSides1[5] = {src:'images/Y.png', id: '', class: ''};
-
-    console.log("looking at ids");
-    for(var i = 0;i<colorCubeSides1.length;i++){
-        console.log(colorCubeSides1[i]);
-    }
- 
 
     colorCubeSides2[0] = {src:'images/B.png', id: '', class: ''};
     colorCubeSides2[1] = {src:'images/R.png', id: '', class: ''};
@@ -75,20 +67,10 @@ function rollCubes() {
     var permittedArray = new Array();
 
     //initialize cubes in resource array
-    // imgArray[0] = {src:'images/G.png', id: '', class: ''};
-    // imgArray[1] = {src:'images/B.png', id: '', class: ''};
-    // imgArray[2] = {src:'images/Y.png', id: '', class: ''};
-    // imgArray[3] = {src:'images/Prime.png', id: '', class: ''};
-    // imgArray[4] = {src:'images/G.png', id: '', class: ''};
-    // imgArray[5] = {src:'images/R.png', id: '', class: ''};
-
-    console.log(imgArray);
 
     for(var i = 0;i<colorCubesArray1.length;i++){
         imgArray.push(colorCubesArray1[i]);
     }
-
-    console.log(imgArray);
 
     for(var i = 0;i<colorCubesArray2.length;i++){
         imgArray.push(colorCubesArray2[i]);
@@ -105,13 +87,7 @@ function rollCubes() {
 
     //then add them to the dom
     var r = document.getElementById('resources');
-    console.log(r);
-    console.log(imgArray);
 
-    for(var i = 0;i<imgArray.length;i++){
-        console.log(imgArray[i]);
-    }
- 
     for(var k = 0;k<imgArray.length;k++)
     {
         console.log(imgArray[k]);
@@ -120,21 +96,9 @@ function rollCubes() {
         img.className = "drag";
         imgArray[k].id = "num"+k;
         img.id = "num"+k;
-
-        //imgArray[k].id;
-
         r.append(img);
-        // console.log(k);
-        // console.log(img.id);
-        // console.log(imgArray[k].id);
-        // console.log(imgArray);
     }
-
-    console.log(imgArray);
-    for(var i = 0;i<imgArray.length;i++){
-        console.log(imgArray[i]);
-        console.log(imgArray[k])
-    }    
+ 
 
 //idea modified from http://stackoverflow.com/questions/4574978/jquery-ui-dropping-elements-only-in-special-areas
  $( function() {
@@ -168,9 +132,6 @@ $(function() {
                     removeIndex = i;
                 }
             }
-
-            console.log(elements);
-            console.log(removeId);
 
             //use index to add cube to the appropriate array and remove from the old array
             array.push(imgArray[removeIndex]);
