@@ -20,7 +20,10 @@ exports.init = function(app) {
 
 dealCards = function(request, response) {
   console.log("in deal cards route");
-  game.cards();
+  r = game.cards();
+  console.log(r);
+  
+  response.send(r);
   //game.testing();
   //console.log(request);
   //console.log(response);
