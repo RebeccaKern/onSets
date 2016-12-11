@@ -12,11 +12,11 @@ index = function(request, response) {
 savingUser = function(request, response) {
     console.log("saving user");
     //session.regenerate();
-    console.log(request.params);
-    console.log(request.params.username);
-    request.session.name = 'Napoleon';
-    request.session.user = request.params.username;
-    console.log(request.session);
+    // console.log(request.params);
+    // console.log(request.params.username);
+    // request.session.name = 'Napoleon';
+    // request.session.user = request.params.username;
+    // console.log(request.session);
 }
 
 loadGame = function(request, response){

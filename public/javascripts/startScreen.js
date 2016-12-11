@@ -36,12 +36,43 @@ window.onload = function() {
         });
     }
 
-    function saveitems(items) {
-        localStorage.items = JSON.stringify(items);
+    function saveitems(name) {
+        //console.log(JSON.parse(localStorage.player1));
+        console.log(localStorage.getItem("player1"));
+        console.log(localStorage.getItem("player2"));
+        console.log("before this");
+        if (localStorage.getItem("player1") === null){
+            localStorage.player1 = JSON.stringify(name);
+        }
+        else if (localStorage.getItem("player2") === null){
+            localStorage.player2 = JSON.stringify(name);
+        }
+        else {
+            if (localStorage.getItem("playersWaiting") === null){
+                localStorage.playersWaiting = JSON.stringify([name]);
+            }
+            else {
+                waiting = JSON.parse(localStorage.getItem("playersWaiting"));
+                waiting.push(name);
+                localStorage.playersWaiting = JSON.stringify(waiting);
+            }
+        }
     }
 
+        // if (JSON.parse(localStorage.player1) == "[]"){
+        //     localStorage.player1 = JSON.stringify(name);
+        // }
+        // if (JSON.parse(localStorage.player2) == "[]"){
+        //     localStorage.player2 = JSON.stringify(name);
+        // }
+        // else{
+        //     localStorage.playersWaiting = JSON.stringify(name);
+        // }
+        //localStorage.items = JSON.stringify(items);
+    
+
     function loaditems() {
-        return JSON.parse(localStorage.items || "[]");
+        return JSON.parse(localStorage.player1 || "[]");
     }
 
 }
