@@ -1,9 +1,90 @@
-    console.log("in game model");
-
 var game = {
 
     testing: function() {
        return "this is a test";
+    },
+
+    cubes: function(){
+        colorCubeSides1 = new Array();
+        colorCubeSides2 = new Array();
+        numberCubeSides = new Array();
+        operationCubeSides = new Array();
+
+        operationCubeSides[0] = {src:'images/And.png', id: '', class: ''};
+        operationCubeSides[1] = {src:'images/And.png', id: '', class: ''};
+        operationCubeSides[2] = {src:'images/Or.png', id: '', class: ''};
+        operationCubeSides[3] = {src:'images/Or.png', id: '', class: ''};
+        operationCubeSides[4] = {src:'images/Prime.png', id: '', class: ''};
+        operationCubeSides[5] = {src:'images/ButNot.png', id: '', class: ''};
+
+        numberCubeSides[0] = {src:'images/1.png', id: '', class: ''};
+        numberCubeSides[1] = {src:'images/2.png', id: '', class: ''};
+        numberCubeSides[2] = {src:'images/3.png', id: '', class: ''};
+        numberCubeSides[3] = {src:'images/4.png', id: '', class: ''};
+        numberCubeSides[4] = {src:'images/5.png', id: '', class: ''};
+        numberCubeSides[5] = {src:'images/6.png', id: '', class: ''};
+
+        colorCubeSides1[0] = {src:'images/B.png', id: '', class: ''};
+        colorCubeSides1[1] = {src:'images/R.png', id: '', class: ''};
+        colorCubeSides1[2] = {src:'images/G.png', id: '', class: ''};
+        colorCubeSides1[3] = {src:'images/Y.png', id: '', class: ''};
+        colorCubeSides1[4] = {src:'images/B.png', id: '', class: ''};
+        colorCubeSides1[5] = {src:'images/Y.png', id: '', class: ''};
+
+        colorCubeSides2[0] = {src:'images/B.png', id: '', class: ''};
+        colorCubeSides2[1] = {src:'images/R.png', id: '', class: ''};
+        colorCubeSides2[2] = {src:'images/G.png', id: '', class: ''};
+        colorCubeSides2[3] = {src:'images/Y.png', id: '', class: ''};
+        colorCubeSides2[4] = {src:'images/R.png', id: '', class: ''};
+        colorCubeSides2[5] = {src:'images/G.png', id: '', class: ''};
+
+        colorCubesArray1 = new Array();
+        colorCubesArray2 = new Array();
+        numberCubesArray = new Array();
+        operationCubesArray = new Array();
+
+        while (colorCubesArray1.length < 4) {
+            randomInt = Math.floor(Math.random() * 6); // modeled after https://gist.github.com/kerimdzhanov/7529623
+            colorCubesArray1.push(JSON.parse(JSON.stringify(colorCubeSides1[randomInt])));
+        }
+
+        while (colorCubesArray2.length < 4) {
+            randomInt = Math.floor(Math.random() * 6); // modeled after https://gist.github.com/kerimdzhanov/7529623
+            colorCubesArray2.push(JSON.parse(JSON.stringify(colorCubeSides2[randomInt])));
+        }
+
+        while (numberCubesArray.length < 3) {
+            randomInt = Math.floor(Math.random() * 6); // modeled after https://gist.github.com/kerimdzhanov/7529623
+            numberCubesArray.push(JSON.parse(JSON.stringify(numberCubeSides[randomInt])));
+        }
+
+        while (operationCubesArray.length < 4) {
+            randomInt = Math.floor(Math.random() * 6); // modeled after https://gist.github.com/kerimdzhanov/7529623
+            operationCubesArray.push(JSON.parse(JSON.stringify(operationCubeSides[randomInt])));
+        }
+
+        //initialize all arrays
+        var imgArray = new Array();
+
+        //initialize cubes in resource array
+
+        for(var i = 0;i<colorCubesArray1.length;i++){
+            imgArray.push(colorCubesArray1[i]);
+        }
+
+        for(var i = 0;i<colorCubesArray2.length;i++){
+            imgArray.push(colorCubesArray2[i]);
+        }
+
+        for(var i = 0;i<numberCubesArray.length;i++){
+            imgArray.push(numberCubesArray[i]);
+        }
+        for(var i = 0;i<operationCubesArray.length;i++){
+            imgArray.push(operationCubesArray[i]);
+        }
+
+        return imgArray;
+
     },
 
     cards: function(){
@@ -50,7 +131,7 @@ var game = {
     }
 
     return dealCardsArray;
-}
+    }
 
 }
 

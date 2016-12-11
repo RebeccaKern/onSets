@@ -36,6 +36,8 @@ socket.on('cardsDealt', function (data){
 });
 
 socket.on('rolledCubes', function (data){
+    $('#rollCubes').hide();
+    console.log("in rolled Cubes");
     var r = document.getElementById('resources');
     for(var k = 0;k<data.length;k++)
     {
