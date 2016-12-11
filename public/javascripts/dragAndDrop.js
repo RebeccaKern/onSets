@@ -43,8 +43,6 @@ function rollCubes() {
         colorCubesArray1.push(JSON.parse(JSON.stringify(colorCubeSides1[randomInt])));
     }
 
-    console.log(colorCubesArray1);
-
     while (colorCubesArray2.length < 4) {
         randomInt = Math.floor(Math.random() * 6); // modeled after https://gist.github.com/kerimdzhanov/7529623
         colorCubesArray2.push(JSON.parse(JSON.stringify(colorCubeSides2[randomInt])));
@@ -76,8 +74,6 @@ function rollCubes() {
         imgArray.push(colorCubesArray2[i]);
     }
 
-    console.log(imgArray);
-
     for(var i = 0;i<numberCubesArray.length;i++){
         imgArray.push(numberCubesArray[i]);
     }
@@ -90,15 +86,15 @@ function rollCubes() {
 
     for(var k = 0;k<imgArray.length;k++)
     {
-        console.log(imgArray[k]);
         img = new Image();
         img.src = imgArray[k].src;
         img.className = "drag";
         imgArray[k].id = "num"+k;
         img.id = "num"+k;
-        r.append(img);
+        //r.append(img);
     }
  
+    socket.emit('rolledCubes', imgArray);
 
 //idea modified from http://stackoverflow.com/questions/4574978/jquery-ui-dropping-elements-only-in-special-areas
  $( function() {

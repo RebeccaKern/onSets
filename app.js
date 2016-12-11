@@ -32,6 +32,7 @@ app.set('view engine', 'ejs');
 app.use(morgan('tiny'));	
 
 require('./routes/index.js').init(app);
+require('./routes/gamePlayRoutes.js').init(app);
 
 // Handle static files
 app.use(express.static(__dirname + '/public'));

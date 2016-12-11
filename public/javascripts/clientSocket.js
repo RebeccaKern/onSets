@@ -15,9 +15,23 @@ socket.on('cubes', function (data) {
 });
 
 socket.on('evil', function (data){
-
     var t = document.getElementById("time");
     $(t).html(data);
+});
+
+socket.on('rolledCubes', function (data){
+    var r = document.getElementById('resources');
+    for(var k = 0;k<data.length;k++)
+    {
+        img = new Image();
+        img.src = data[k].src;
+        img.className = "drag";
+        data[k].id = "num"+k;
+        img.id = "num"+k;
+        r.append(img);
+    }
+
+    
 });
 
 

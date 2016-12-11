@@ -17,6 +17,10 @@ exports.init = function(io) {
         socket.emit('evil', data);
         socket.broadcast.emit('evil', data);
     });
+    socket.on('rolledCubes', function(data){
+        socket.emit('rolledCubes', data);
+        socket.broadcast.emit('rolledCubes', data);
+    });
     socket.on('disconnect', function () {
          --currentPlayers;
          socket.broadcast.emit('players', { number: currentPlayers});

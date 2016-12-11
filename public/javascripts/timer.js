@@ -13,7 +13,7 @@ function setTimer(){
          return;
       }
       var socket = io();
-    socket.emit('evil', time);
+      socket.emit('evil', time);
     
     }
 }
