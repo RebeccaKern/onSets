@@ -24,7 +24,16 @@ window.onload = function() {
         var nameValue = document.getElementById("username").value;
         var divTest = document.getElementById("nameDisplay");
         $("#nameDisplay").html(nameValue);
-        saveitems(nameValue)
+        saveitems(nameValue);
+        var u = "saveUser/" + nameValue;
+        $.ajax({
+            url: u,
+            type: 'POST',
+            success: function(result) {
+              console.log(result);
+              console.log("sent");
+            }
+        });
     }
 
     function saveitems(items) {

@@ -54,3 +54,4 @@ function drawCards(){
         c.append(img);
     }
 }
+

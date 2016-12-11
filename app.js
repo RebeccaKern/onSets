@@ -2,9 +2,25 @@ var morgan = require('morgan');
 var fs = require('fs');
 var path = require('path');
 
+//var cookieSession = require('cookie-session');
 var express = require('express');
 var app = express();
 
+// app.use(cookieSession({
+//   name: 'session',
+//   keys: ['something'],
+//   httpOnly: true,   
+
+//   // Cookie Options
+//   maxAge: 24 * 60 * 60 * 1000 // 24 hours
+// }))
+
+// var session = require('express-session');
+
+// app.use(session({
+//   secret: '05a9fa4cf4969ca800f09e91e978991a650a702b39b8e4aea368fe1a8e4dbdc27a3cb5896f571bcbb9764710021bd2ce6ccd166fcfaad03c829e438f0d65cc98',
+//   cookie: { secure: true }
+// }))
 
 // Set the views directory
 app.set('views', __dirname + '/views');
@@ -15,13 +31,7 @@ app.set('view engine', 'ejs');
 // Define how to log events
 app.use(morgan('tiny'));	
 
-// // Load all routes in the routes directory
-// fs.readdirSync('./routes').forEach(function (file){
-//   // There might be non-js files in the directory that should not be loaded
-//   if (path.extname(file) == '.js') {
-//   	require('./routes/'+ file).init(app);
-//   	}
-// });
+require('./routes/index.js').init(app);
 
 // Handle static files
 app.use(express.static(__dirname + '/public'));
@@ -40,25 +50,5 @@ var sio =require('socket.io')(httpServer);
 // The server socket.io code is in the socketio directory.
 require('./socketio/serverSocket.js').init(sio);
 console.log("this is here app.js");
-
-// var countdown = 1000; 
-// setInterval(function() {  
-//   countdown--;
-//   io.sockets.emit('timer', { countdown: countdown });
-// }, 1000);
-
-// io.sockets.on('connection', function (socket) {  
-//   socket.on('reset', function (data) {
-//     countdown = 1000;
-//     io.sockets.emit('timer', { countdown: countdown });
-//   });
-// });
-
-// io.sockets.on('connection', function (socket) {  
-//   socket.on('cubes', function (data) {
-//     io.sockets.emit('timer', { countdown: countdown });
-//   });
-// });
-
 
 httpServer.listen(50000, function() {console.log('Listening on 50000');});
