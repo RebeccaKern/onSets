@@ -27,6 +27,7 @@ socket.on('players', function (data){
     console.log(playerNumber);
     $(t).html(playerNumber);
     $('#playerNumber').html("Your name is " + loaditems());
+    globalFunction();
     function loaditems() {
         console.log(playerNumber);
         var pN = document.getElementById("numPlayers");

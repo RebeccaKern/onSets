@@ -12,30 +12,53 @@ $( function() {
         setTimer();
     });
 
-    $('#dealCards').click(function() {
-      console.log("here");
-      drawCards();
-    });
+    // if (playerNumber === 1){
+    //   $('#dealCards').hide();
+    // }
+
+    // if (playerNumber === 2){
+    //   $('#rollCubes').hide();
+    // }
+
+    // console.log(playerNumber);
+
+      $('#dealCards').click(function() {
+        console.log("here");
+        drawCards();
+      });
 
     $('#rollCubes').click(function() {
         rollCubes();
         $('#rollCubes').hide();
     });
 
-    $('#playerNumber').html("Your name is " + loaditems());
+});
 
-    function loaditems() {
-        console.log(playerNumber);
-        var pN = document.getElementById("numPlayers");
-        console.log("playerNumber");
-        console.log(pN.textContent);
-        console.log($("#numPlayers").html());
-        if (pN.textContent === 1){
-          return JSON.parse(localStorage.player1);
-        }
-        if (pN.textContent === 2){
-          return JSON.parse(localStorage.player2);
-        }
+function globalFunction(){
+  // $('#reset').click(function() {
+  //       setTimer();
+  //   });
+
+    if (playerNumber === 1){
+      $('#dealCards').hide();
     }
 
-});
+    if (playerNumber === 2){
+      $('#rollCubes').hide();
+    }
+
+    console.log(playerNumber);
+
+    //   $('#dealCards').click(function() {
+    //     console.log("here");
+    //     drawCards();
+    //   });
+
+    // $('#rollCubes').click(function() {
+    //     console.log("rollingCubes");
+    //     rollCubes();
+    //     $('#rollCubes').hide();
+    // });
+
+
+}
