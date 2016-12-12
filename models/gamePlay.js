@@ -83,6 +83,10 @@ var game = {
             imgArray.push(operationCubesArray[i]);
         }
 
+        for(var i = 0;i<imgArray.length;i++){
+            imgArray[i].id = "num" + i;
+        }
+
         return imgArray;
 
     },

@@ -10,6 +10,8 @@ function rollCubes() {
       if (result){
         console.log("we have a result");
         console.log(result);
+        // resourcesArray = result;
+        // console.log(resourcesArray);
         var socket = io();
         socket.emit('rolledCubes', result);
       }
