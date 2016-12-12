@@ -6,6 +6,8 @@ $( function() {
     requiredArray = new Array();
     permittedArray = new Array();
 
+    playerNumber = null;
+
     $('#reset').click(function() {
         setTimer();
     });
@@ -23,7 +25,17 @@ $( function() {
     $('#playerNumber').html("Your name is " + loaditems());
 
     function loaditems() {
-        return JSON.parse(localStorage.player1 || "[]");
+        console.log(playerNumber);
+        var pN = document.getElementById("numPlayers");
+        console.log("playerNumber");
+        console.log(pN.textContent);
+        console.log($("#numPlayers").html());
+        if (pN.textContent === 1){
+          return JSON.parse(localStorage.player1);
+        }
+        if (pN.textContent === 2){
+          return JSON.parse(localStorage.player2);
+        }
     }
 
 });

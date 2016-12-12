@@ -19,8 +19,4 @@ dealCards = function(request, response) {
   r = game.cards();
   console.log(r);
   response.send(r);
-  //game.testing();
-  //console.log(request);
-  //console.log(response);
-  //response.render('startScreen.ejs');
 }

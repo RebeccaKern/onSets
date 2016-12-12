@@ -17,6 +17,32 @@ socket.on('cubes', function (data) {
    
 });
 
+socket.on('players', function (data){
+    console.log("players socket hit");
+    var t = document.getElementById("numPlayers");
+    console.log(data);
+    if (playerNumber === null){
+        playerNumber = data.number;
+    }
+    console.log(playerNumber);
+    $(t).html(playerNumber);
+    $('#playerNumber').html("Your name is " + loaditems());
+    function loaditems() {
+        console.log(playerNumber);
+        var pN = document.getElementById("numPlayers");
+        console.log("playerNumber");
+        console.log(pN.textContent);
+        console.log($("#numPlayers").html());
+        if (pN.textContent == 1){
+          return JSON.parse(localStorage.player1);
+        }
+        if (pN.textContent == 2){
+          return JSON.parse(localStorage.player2);
+        }
+    }
+});
+
+
 socket.on('evil', function (data){
     console.log("we are in the timing socket");
     var t = document.getElementById("time");
