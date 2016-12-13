@@ -19,3 +19,7 @@ body {
   background-color: #CCC;
   height: 50vh;
 }
+
+#login, #signup {
+    width: 70%;
+}

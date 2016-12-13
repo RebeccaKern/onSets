@@ -1,5 +1,22 @@
 window.onload = function() {
     $("#loginForm").hide();
+    $("#signupForm").hide();
+    $('#signup').click(function() {
+        $("#signup").hide();
+        $("#login").hide();
+        //document.getElementById('login').style.visibility = 'hidden';
+        $("#signupForm").show();
+
+    });
+    $('#login').click(function() {
+        $("#login").hide();
+        $("#signup").hide();
+        $("#loginForm").show();
+
+        // $("#login").hide();
+
+    });
+
 
         function getScore(handleData, name){
         //$("#yourScore").append("yolo");
