@@ -22,15 +22,23 @@ $( function() {
 
     // console.log(playerNumber);
 
-      $('#dealCards').click(function() {
-        console.log("here");
-        drawCards();
-      });
+    $('#dealCards').click(function() {
+      console.log("here");
+      drawCards();
+    });
 
     $('#rollCubes').click(function() {
         rollCubes();
         $('#rollCubes').hide();
     });
+
+    $('#challengeNow').click(function(){
+        challengeNow(playerNumber);
+        console.log(playerNumber);
+    })
+    $('#challengeNever').click(function(){
+        challengeNever(playerNumber);
+    })
 
 });
 
