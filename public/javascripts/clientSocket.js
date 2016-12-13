@@ -7,16 +7,36 @@ function test(){
     return 5;
 }
 
+function getPlayerScore(handleData, name){
+    console.log("in get player score");
+    var u = "player/"+name;
+    pScore = "nothing";
+    pName = name;
+    console.log(u);
+        $.ajax({
+        url: u,
+        type: 'GET',
+        success: function(result) {
+            console.log("should have gotten");
+            console.log(result);
+            console.log(pName);
+            handleData(result, pName);
+        }
+    });
+    }
+
+function handleData(result, name){
+    console.log("we too have a result");
+    console.log(result);
+    console.log(result[0].playerscore);
+    updatePlayer(name, result[0].playerscore);
+}
 
 
-socket.on('winner', function (data) {
-    var name = "Matt";
-    //console.log(getScore(name));
-    console.log(getScore("Matt"));
-    console.log($("#gotten").html());
-    console.log($("#socketTest").html());
-    var score = 1;//getScore(name);
-    var u = "player/"+name+"/"+score;
+function updatePlayer(name, score){
+    var newScore = parseInt(score) + 6;
+    var u = "player/"+name+"/"+newScore;
+    console.log("in update player function");
     $.ajax({
     url: u,
     type: 'POST',
@@ -24,12 +44,34 @@ socket.on('winner', function (data) {
       console.log("was successful in post function");
     }
     });
-    console.log("in winner");
-    console.log(location.href);
+      console.log(location.href);
     location.href='/scores';
     console.log(location.href);
     winningPlayer = data;
     console.log(winningPlayer);
+}
+
+
+socket.on('winner', function (data) {
+    console.log("looking for winner");
+    var name = "Becca";
+    //updatePlayer(name, 5);
+    //console.log(getScore(name));
+    //console.log(getScore("Matt"));
+    // console.log($("#gotten").html());
+    // console.log($("#socketTest").html());
+    var score = 1;//getScore(name);
+    getPlayerScore(handleData, name);
+    // var u = "player/"+name+"/"+score;
+    // $.ajax({
+    // url: u,
+    // type: 'POST',
+    // success: function(result) {
+    //   console.log("was successful in post function");
+    // }
+    // });
+    // console.log("in winner");
+  
     //alert("player " + data + "wins!");
 });
 

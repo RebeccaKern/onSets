@@ -92,17 +92,20 @@ doUpdate = function(req, res){
   // if there no update operation defined, render an error page.
   console.log(filter);
   if (!req.params) {
-    res.render('message', {title: 'Mongo Demo', obj: "No update operation defined"});
+    res.send("success");
+    //res.render('message', {title: 'Mongo Demo', obj: "No update operation defined"});
     return;
   }
   console.log("checkplus");
   var p = req.params.playerscore;
   var update = { '$set': { playerscore: p } };
+  console.log("update might be happening");
   //var update = JSON.parse(req.params);
-  // mongoModel.update(  req.params.player, filter, update,
-  //                         function(status) {
-  //                             res.render('message',{title: 'Mongo Demo', obj: status});
-  //                         });
+  mongoModel.update(  req.params.player, filter, update,
+                          function(status) {
+                              res.send("should be successful");
+                              //res.render('message',{title: 'Mongo Demo', obj: status});
+                          });
 }
 
 doDelete = function(req, res){
