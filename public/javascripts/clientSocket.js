@@ -1,11 +1,13 @@
 var socket = io.connect();
-console.log("we are in the clientSide socket");
+socket.on('updateTurn', function (data) {
+    playerTurn = data;
+    document.getElementById("playerTurnText").innerHTML = "Player " + playerTurn +"'s turn";
+});
+
 socket.on('cubes', function (data) {
 
     //update images to reflect cube movement
     var newLocation = document.getElementById(data.class);
-    console.log(data);
-    console.log(data.class);
     img = new Image();
     img.src = data.src;
     img.className = data.class;
@@ -14,26 +16,23 @@ socket.on('cubes', function (data) {
 
     //remove cube image from initial position
     document.getElementById(data.id).remove();
+    console.log("moved a cube");
+    updatePlayerTurn();
    
 });
 
 socket.on('players', function (data){
-    console.log("players socket hit");
+
     var t = document.getElementById("numPlayers");
-    console.log(data);
+
     if (playerNumber === null){
         playerNumber = data.number;
     }
-    console.log(playerNumber);
     $(t).html(playerNumber);
     $('#playerNumber').html("Your name is " + loaditems());
     globalFunction();
     function loaditems() {
-        console.log(playerNumber);
         var pN = document.getElementById("numPlayers");
-        console.log("playerNumber");
-        console.log(pN.textContent);
-        console.log($("#numPlayers").html());
         if (pN.textContent == 1){
           return JSON.parse(localStorage.player1);
         }
@@ -45,14 +44,12 @@ socket.on('players', function (data){
 
 
 socket.on('evil', function (data){
-    console.log("we are in the timing socket");
     var t = document.getElementById("time");
     $(t).html(data);
 });
 
 socket.on('cardsDealt', function (data){
     $('#dealCards').hide();
-    console.log("we are on this side but maybe not working?");
     var c = document.getElementById('cards');
 
     for(var i = 0;i<data.length;i++)
@@ -66,11 +63,9 @@ socket.on('cardsDealt', function (data){
 
 socket.on('rolledCubes', function (data){
     $('#rollCubes').hide();
-    console.log("in rolled Cubes");
 
     var r = document.getElementById('resources');
     resourcesArray = data;
-    console.log(resourcesArray);
     for(var k = 0;k<data.length;k++)
     {
         img = new Image();
@@ -91,13 +86,11 @@ socket.on('rolledCubes', function (data){
     $('.droppable').droppable({
         scope: "items",
         drop: function(e, ui) {
-            console.log(this);
+            console.log("playerTurn "+ playerTurn);
+            console.log("playerNumber "+ playerNumber);
             //drop the cube to a certain spot and disable dragging
             var $drop = $(this);
-            console.log(this);
-            console.log(permittedArray);
             var array = eval(this.id + 'Array');
-            console.log(array);
             //var array = this.id + 'Array';
             $(ui.draggable).draggable({
                 "disabled": true
@@ -107,13 +100,8 @@ socket.on('rolledCubes', function (data){
             //find the id and then index of the cube that moved
             elements = document.getElementsByClassName('drag ui-draggable ui-draggable-handle ui-draggable-disabled');
             removeId = elements[0].id;
-            console.log(resourcesArray);
-            // console.log(resourcesArray[0]);
-            // console.log(resourcesArray[0].id);
-            // console.log(removeId);
             for(var i = 0;i<resourcesArray.length;i++)
             {
-                console.log(resourcesArray[i].id);
                 if (resourcesArray[i].id === removeId){
                     removeIndex = i;
                 }
@@ -124,17 +112,10 @@ socket.on('rolledCubes', function (data){
             resourcesArray.splice(removeIndex, 1);
 
             //get cube object to pass
-            console.log(this);
-            console.log(this.id);
-            console.log(this.id + 'Array');
-            console.log(array);
 
             movedCube = array[array.length-1];
-            console.log(movedCube);
             newL = this.id;
             movedCube.class = newL;
-            console.log(this.id);
-            console.log(movedCube.class);
 
             //use sockets to broadcast the cube that moved to all clients
             var socket = io();

@@ -42,10 +42,17 @@ $( function() {
 
 });
 
+function updatePlayerTurn(){
+    if (playerTurn === 1){
+      playerTurn = 2;
+    }
+    else if (playerTurn === 2){
+        playerTurn = 1;
+    }
+    socket.emit('updateTurn', playerTurn);
+}
+
 function globalFunction(){
-  // $('#reset').click(function() {
-  //       setTimer();
-  //   });
 
     if (playerNumber === 1){
       $('#dealCards').hide();
@@ -56,6 +63,11 @@ function globalFunction(){
     }
 
     console.log(playerNumber);
+
+    playerTurn = 1;
+    document.getElementById("playerTurnText").innerHTML = "Player " + playerTurn +"'s turn";
+
+     
 
     //   $('#dealCards').click(function() {
     //     console.log("here");

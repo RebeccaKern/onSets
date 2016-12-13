@@ -21,6 +21,10 @@ exports.init = function(io) {
         socket.emit('rolledCubes', data);
         socket.broadcast.emit('rolledCubes', data);
     });
+    socket.on('updateTurn', function(data){
+        socket.emit('updateTurn', data);
+        socket.broadcast.emit('updateTurn', data);
+    });
     socket.on('cardsDealt', function(data){
         console.log("made it server side of cardsDealt");
         console.log(data);
