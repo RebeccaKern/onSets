@@ -5,6 +5,7 @@ window.onload = function() {
     // http://stackoverflow.com/questions/3514784/what-is-the-best-way-to-detect-a-mobile-device-in-jquery
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         $("#mobileCheck").html("You are going mobile");
+        console.log("here");
         alert("You are on a mobile device so you'll only be able to watch.");
         location.href='/play';
     }
@@ -33,6 +34,14 @@ window.onload = function() {
         console.log(getScore(seeIfPlayerExists, name));
     });  
 
+     $('#signupSubmitButton').click(function() {
+        var name = $("#usernameSignup").val();
+        console.log(name);
+        console.log(getScore(handleData, name));
+    });  
+
+}
+
     function seeIfPlayerExists(result, name){
         $("#loginForm").hide();
         if(typeof result === 'object'){
@@ -53,11 +62,7 @@ window.onload = function() {
                 //document.getElementById("yourScore").innerHTML = result[0].playerscore;
     }
 
-    $('#signupSubmitButton').click(function() {
-        var name = $("#usernameSignup").val();
-        console.log(name);
-        console.log(getScore(handleData, name));
-    });  
+   
 
 function makePlayer(name, score){
     var u = "player/"+name+"/"+score;
@@ -122,9 +127,9 @@ function makePlayer(name, score){
 
     //console.log("p3" + pScore);
 
-    console.log(document.getElementById("yourScore").innerHTML);
-    var currentScore = document.getElementById("yourScore").innerHTML;
-    console.log(currentScore);
+    //console.log(document.getElementById("yourScore").innerHTML);
+    //var currentScore = document.getElementById("yourScore").innerHTML;
+    //console.log(currentScore);
 
     console.log("in startscreen.js");
 
@@ -202,5 +207,4 @@ function makePlayer(name, score){
     }
 
 
-}
 
