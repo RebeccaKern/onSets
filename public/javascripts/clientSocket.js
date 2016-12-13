@@ -96,7 +96,10 @@ socket.on('players', function (data){
 
     var t = document.getElementById("numPlayers");
     console.log("when do i hit " + playerNumber);
-    if (playerNumber === null){
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        playerNumber = -1;
+    }
+    else if (playerNumber === null){
         playerNumber = data.number;
     }
     //console.log(playerNumber);
