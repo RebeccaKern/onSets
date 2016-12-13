@@ -1,5 +1,3 @@
-window.onload = function() {
-
     function getScore(){
         //$("#yourScore").append("yolo");
         console.log("in get score");
@@ -19,10 +17,18 @@ window.onload = function() {
              } 
             }
         });
-                console.log(document.getElementById("yourScore").innerHTML);
+
     }
 
     getScore();
+
+window.onload = function() {
+
+    console.log(document.getElementById("yourScore").innerHTML);
+    var currentScore = document.getElementById("yourScore").innerHTML;
+    console.log(currentScore);
+
+
 
 
     console.log("in startscreen.js");
