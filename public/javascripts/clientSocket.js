@@ -7,25 +7,7 @@ function test(){
     return 5;
 }
 
-function getScore(name){
-    returnValue = null;
-    console.log("in get score");
-    var u = "player/"+name;
-    console.log(u);
-        $.ajax({
-        url: u,
-        type: 'GET',
-        success: function(result) {
-          if (result){
-            $("#socketTest").html(result);
-            $("#gotten").html(result);
-         } 
-         else {
-            $("#gotten").html("This sucks");
-         } 
-        }
-    });
-}
+
 
 socket.on('winner', function (data) {
     var name = "Matt";
@@ -71,11 +53,12 @@ socket.on('cubes', function (data) {
 socket.on('players', function (data){
 
     var t = document.getElementById("numPlayers");
-
+    console.log("when do i hit " + playerNumber);
     if (playerNumber === null){
         playerNumber = data.number;
     }
-    $(t).html("You are player " + playerNumber);
+    //console.log(playerNumber);
+    $(t).html("You are player " + playerNumber + "and there are " + data.o);
     //$('#playerNumber').html("Your name is " + loaditems());
     globalFunction();
 

@@ -1,10 +1,13 @@
 exports.init = function(io) {
     console.log('in exports');
     var currentPlayers = 0;
+    var ordinal = 0;
 	io.sockets.on('connection', function(socket){
      ++currentPlayers;
-     socket.emit('players', { number: currentPlayers});
-     socket.broadcast.emit('players', { number: currentPlayers});
+     ++ordinal;
+     console.log("someboday connected here");
+     socket.emit('players', { number: currentPlayers, o: ordinal});
+     socket.broadcast.emit('players', { number: currentPlayers, o: ordinal});
 	socket.on('chat message', function(msg){
 	   io.emit('chat message', msg);
 	});

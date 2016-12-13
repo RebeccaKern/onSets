@@ -1,5 +1,8 @@
+//console.log(playerNumber);
+
 $( function() {
 
+    //console.log(playerNumber);
     //initialize all arrays here
     resourcesArray = new Array();
     forbiddenArray = new Array();
@@ -33,6 +36,7 @@ $( function() {
 
 });
         playerNumber = null;
+
         winningPlayer = null;
 
 
