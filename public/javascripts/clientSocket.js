@@ -111,7 +111,7 @@ socket.on('players', function (data){
         playerNumber = -1;
     }
     else if (playerNumber === null){
-        console.log("mobileNum" + mobileNum);
+        //console.log("mobileNum" + mobileNum);
         playerNumber = data.number;
     }
     //console.log(playerNumber);
