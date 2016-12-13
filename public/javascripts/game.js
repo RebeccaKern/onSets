@@ -12,16 +12,6 @@ $( function() {
         setTimer();
     });
 
-    // if (playerNumber === 1){
-    //   $('#dealCards').hide();
-    // }
-
-    // if (playerNumber === 2){
-    //   $('#rollCubes').hide();
-    // }
-
-    // console.log(playerNumber);
-
     $('#dealCards').click(function() {
       console.log("here");
       drawCards();
@@ -44,6 +34,13 @@ $( function() {
     document.getElementById("playerTurnText").innerHTML = "Player " + playerTurn +"'s turn";
 
 });
+
+
+function win(player){
+    console.log("in win");
+    var socket = io();
+    socket.emit('winner', player);
+}
 
 function updatePlayerTurn(){
     if (playerTurn === 1){

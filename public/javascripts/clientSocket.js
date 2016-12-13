@@ -4,6 +4,11 @@ socket.on('updateTurn', function (data) {
     document.getElementById("playerTurnText").innerHTML = "Player " + playerTurn +"'s turn";
 });
 
+socket.on('winner', function (data) {
+    console.log("in winner");
+    alert("player " + data + "wins!");
+});
+
 socket.on('cubes', function (data) {
 
     //update images to reflect cube movement
