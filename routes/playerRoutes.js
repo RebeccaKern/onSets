@@ -67,6 +67,7 @@ doIndividualRetrieve = function(req, res){
         var message = "No documents with "+JSON.stringify(req.query)+ 
                       " in collection "+req.params.collection+" found.";
         console.log(message);
+        res.send(message);
         //res.render('message', {title: 'Mongo Demo', obj: message});
       }
         });

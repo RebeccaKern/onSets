@@ -1,31 +1,97 @@
-    function getScore(){
-        //$("#yourScore").append("yolo");
-        console.log("in get score");
-        var u = "player/"+"Matt";
-        console.log(u);
-            $.ajax({
-            url: u,
-            type: 'GET',
-            success: function(result) {
-              if (result){
-                console.log("we too have a result");
-                console.log(result);
-                console.log(result[0].playerscore);
-                pScore = result[0].playerscore;
-                document.getElementById("yourScore").innerHTML = result[0].playerscore;
-             } 
-             else {
-                $("#yourScore").append("This sucks");
-             } 
-            }
-        });
+    // function getScore(handleData){
+    //     //$("#yourScore").append("yolo");
+    //     console.log("in get score");
+    //     var u = "player/"+"Matt";
+    //     pScore = "nothing";
+    //     console.log(u);
+    //         $.ajax({
+    //         url: u,
+    //         //async: false,
+    //         type: 'GET',
+    //         success: function(result) {
+    //             handleData(result);
+    //             // console.log("we too have a result");
+    //             // console.log(result);
+    //             // console.log(result[0].playerscore);
+    //             // pScore = result[0].playerscore;
+    //             // console.log("p" + pScore);
+    //             // document.getElementById("yourScore").innerHTML = result[0].playerscore;
+            
+    //         }
+    //     });
+    //     return pScore;
 
-    }
+    // }
 
-    getScore();
+    // function handleData(result){
+    //     console.log("we too have a result");
+    //     console.log(result);
+    //     console.log(result[0].playerscore);
+    //     pScore = result[0].playerscore;
+    //     console.log("p" + pScore);
+    //     //nextCallback(pScore);
+    //             //document.getElementById("yourScore").innerHTML = result[0].playerscore;
+    // }
+
+    // console.log(getScore(handleData));
+    //var i = 0;
+    // while (pScore === "nothing"){
+    //    i++;
+    // }
+    //console.log("p2" + pScore);
+
     //playerNumber = null;
 
 window.onload = function() {
+
+
+        function getScore(handleData){
+        //$("#yourScore").append("yolo");
+        console.log("in get score");
+        var u = "player/"+"Ji";
+        pScore = "nothing";
+        console.log(u);
+            $.ajax({
+            url: u,
+            //async: false,
+            type: 'GET',
+            success: function(result) {
+                handleData(result);
+                // console.log("we too have a result");
+                // console.log(result);
+                // console.log(result[0].playerscore);
+                // pScore = result[0].playerscore;
+                // console.log("p" + pScore);
+                // document.getElementById("yourScore").innerHTML = result[0].playerscore;
+             // } 
+             // else {
+             //    console.log("not handling request");
+             //    $("#yourScore").append("This sucks");
+             // } 
+            }
+        });
+        return pScore;
+
+    }
+
+    function handleData(result){
+        console.log("we too have a result");
+        console.log(result);
+    if(typeof result === 'object'){
+        pScore = result[0].playerscore;
+        console.log("p" + pScore);
+    }
+    else{
+        console.log("That player doesn't exist yet");
+    }
+        //nextCallback(pScore);
+                //document.getElementById("yourScore").innerHTML = result[0].playerscore;
+    }
+    
+    console.log(getScore(handleData));
+
+
+    console.log("p3" + pScore);
 
     console.log(document.getElementById("yourScore").innerHTML);
     var currentScore = document.getElementById("yourScore").innerHTML;
