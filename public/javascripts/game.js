@@ -40,6 +40,9 @@ $( function() {
         challengeNever(playerNumber);
     })
 
+        playerTurn = 1;
+    document.getElementById("playerTurnText").innerHTML = "Player " + playerTurn +"'s turn";
+
 });
 
 function updatePlayerTurn(){
@@ -64,8 +67,7 @@ function globalFunction(){
 
     console.log(playerNumber);
 
-    playerTurn = 1;
-    document.getElementById("playerTurnText").innerHTML = "Player " + playerTurn +"'s turn";
+
 
      
 

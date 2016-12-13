@@ -28,18 +28,18 @@ socket.on('players', function (data){
     if (playerNumber === null){
         playerNumber = data.number;
     }
-    $(t).html(playerNumber);
-    $('#playerNumber').html("Your name is " + loaditems());
+    $(t).html("You are player " + playerNumber);
+    //$('#playerNumber').html("Your name is " + loaditems());
     globalFunction();
-    function loaditems() {
-        var pN = document.getElementById("numPlayers");
-        if (pN.textContent == 1){
-          return JSON.parse(localStorage.player1);
-        }
-        if (pN.textContent == 2){
-          return JSON.parse(localStorage.player2);
-        }
-    }
+    // function loaditems() {
+    //     var pN = document.getElementById("numPlayers");
+    //     if (pN.textContent == 1){
+    //       return JSON.parse(localStorage.player1);
+    //     }
+    //     if (pN.textContent == 2){
+    //       return JSON.parse(localStorage.player2);
+    //     }
+    // }
 });
 
 
