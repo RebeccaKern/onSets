@@ -10,6 +10,10 @@ $( function() {
     requiredArray = new Array();
     permittedArray = new Array();
 
+    goal = Math.floor(Math.random() * 6)+1;
+    var socket = io();
+    socket.emit('goal', goal);
+
     $('#reset').click(function() {
         setTimer();
     });

@@ -3,7 +3,9 @@ socket.on('updateTurn', function (data) {
     playerTurn = data;
     document.getElementById("playerTurnText").innerHTML = "Player " + playerTurn +"'s turn";
 });
-
+socket.on('goal', function (data) {
+    $('#goal').html("Goal: "+ data);
+});
 function getPlayerScore(handleData, name){
     var u = "player/"+name;
     pScore = "nothing";
