@@ -1,5 +1,30 @@
 window.onload = function() {
 
+    function getScore(){
+        //$("#yourScore").append("yolo");
+        console.log("in get score");
+        var u = "player/"+"Matt";
+        console.log(u);
+            $.ajax({
+            url: u,
+            type: 'GET',
+            success: function(result) {
+              if (result){
+                console.log(result);
+                console.log(result[0].playerscore);
+                document.getElementById("yourScore").innerHTML = result[0].playerscore;
+             } 
+             else {
+                $("#yourScore").append("This sucks");
+             } 
+            }
+        });
+                console.log(document.getElementById("yourScore").innerHTML);
+    }
+
+    getScore();
+
+
     console.log("in startscreen.js");
 
     $(function() { 

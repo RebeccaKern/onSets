@@ -6,10 +6,6 @@ $( function() {
         url: "player/",
         type: 'GET',
         success: function(result) {
-          console.log(result);
-          console.log(result[0]);
-          console.log(result[0].playername);
-          console.log("the result is gotten");
           if (result){
             //$("#gotten").append(result[0].playername);
             for (var i = 0; i < result.length; i++) {

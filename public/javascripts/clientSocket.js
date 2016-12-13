@@ -3,16 +3,43 @@ socket.on('updateTurn', function (data) {
     playerTurn = data;
     document.getElementById("playerTurnText").innerHTML = "Player " + playerTurn +"'s turn";
 });
+function test(){
+    return 5;
+}
+
+function getScore(name){
+    returnValue = null;
+    console.log("in get score");
+    var u = "player/"+name;
+    console.log(u);
+        $.ajax({
+        url: u,
+        type: 'GET',
+        success: function(result) {
+          if (result){
+            $("#socketTest").html(result);
+            $("#gotten").html(result);
+         } 
+         else {
+            $("#gotten").html("This sucks");
+         } 
+        }
+    });
+}
 
 socket.on('winner', function (data) {
     var name = "Matt";
-    var score = 300;
+    //console.log(getScore(name));
+    console.log(getScore("Matt"));
+    console.log($("#gotten").html());
+    console.log($("#socketTest").html());
+    var score = 1;//getScore(name);
     var u = "player/"+name+"/"+score;
     $.ajax({
     url: u,
     type: 'POST',
     success: function(result) {
-      console.log("was successful");
+      console.log("was successful in post function");
     }
     });
     console.log("in winner");

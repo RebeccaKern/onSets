@@ -8,6 +8,7 @@ exports.init = function(app) {
   //app.put('/:collection', doCreate);
  app.put('/:player/:playername/:playerscore', doCreate); 
  app.get('/player', doRetrieve); // CRUD Retrieve
+ app.get('/player/:playername', doIndividualRetrieve); // CRUD Retrieve
  // app.get("/player/:playername", getplayer);
  //app.put("/player/:playername/:playerscore", putplayer);
  //app.post("/player/:playername/:playerscore", updateplayer);
@@ -49,6 +50,28 @@ doCreate = function(req, res){
   console.log("3. Done with doCreate in dbRoutes");
 }
 
+doIndividualRetrieve = function(req, res){
+  console.log("Starting doIRetrieve");
+  console.log(req.params);
+  mongoModel.retrieve(
+    'player', 
+    req.params,
+        function(modelData) {
+            console.log(modelData);
+          if (modelData.length) {
+            console.log("length is greater than 1");
+            //response.render('scores.ejs', {'allPlayers': modelData});
+            res.send(modelData);
+        //res.render('results',{title: 'Mongo Demo', obj: modelData});
+      } else {
+        var message = "No documents with "+JSON.stringify(req.query)+ 
+                      " in collection "+req.params.collection+" found.";
+        console.log(message);
+        //res.render('message', {title: 'Mongo Demo', obj: message});
+      }
+        });
+}
+
 doRetrieve = function(req, res){
   console.log("Starting doRetrieve");
   console.log(req.params);
@@ -86,10 +109,10 @@ doUpdate = function(req, res){
   var p = req.params.playerscore;
   var update = { '$set': { playerscore: p } };
   //var update = JSON.parse(req.params);
-  mongoModel.update(  req.params.player, filter, update,
-                          function(status) {
-                              res.render('message',{title: 'Mongo Demo', obj: status});
-                          });
+  // mongoModel.update(  req.params.player, filter, update,
+  //                         function(status) {
+  //                             res.render('message',{title: 'Mongo Demo', obj: status});
+  //                         });
 }
 
 doDelete = function(req, res){
