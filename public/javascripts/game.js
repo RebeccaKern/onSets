@@ -1,14 +1,8 @@
-//console.log(playerNumber);
-//console.log("playerNameId" + window.playerNameId);
 
-console.log("username" + localStorage.username);
 username = localStorage.username;
-console.log(username);
+
 
 $( function() {
-
-    console.log("playerNameId" + window.playerNameId);
-
 
     //initialize all arrays here
     resourcesArray = new Array();
@@ -21,7 +15,6 @@ $( function() {
     });
 
     $('#dealCards').click(function() {
-      console.log("here");
       drawCards();
     });
 
@@ -32,14 +25,12 @@ $( function() {
 
     $('#challengeNow').click(function(){
         challengeNow(playerNumber);
-        console.log(playerNumber);
-    })
+    });
     $('#challengeNever').click(function(){
         challengeNever(playerNumber);
-    })
+    });
 
         playerTurn = 1;
-    //document.getElementById("playerTurnText").innerHTML = "Player " + playerTurn +"'s turn";
 
 });
         playerNumber = null;
@@ -59,9 +50,6 @@ function updatePlayerTurn(){
 
 function globalFunction(){
 
-            //playerNumber = null;
-
-
     if (playerNumber !== 1){
       $('#dealCards').hide();
     }
@@ -71,28 +59,9 @@ function globalFunction(){
     }
 
     if ((playerNumber !== 1) && (playerNumber !== 2)) {
-      console.log(playerNumber);
       $('#challengeNever').hide();
       $('#challengeNow').hide();
       $('#reset').hide();
     }
-
-    console.log(playerNumber);
-
-
-
-     
-
-    //   $('#dealCards').click(function() {
-    //     console.log("here");
-    //     drawCards();
-    //   });
-
-    // $('#rollCubes').click(function() {
-    //     console.log("rollingCubes");
-    //     rollCubes();
-    //     $('#rollCubes').hide();
-    // });
-
 
 }

@@ -15,10 +15,6 @@ playerCollection: [],
         return this.playerCollection;
     },
 
-    // retrieveAll: function() {
-    //    return this.playerCollection;
-    // },
-
 // Retrieve: get an item
 // e.g. given the name Daffy, find and return that item
 
@@ -30,6 +26,7 @@ playerCollection: [],
             }
         }
     },
+    
 // Update: modify an item
 // e.g. given {name:"Daffy", color:"green", creator:"Warner Bros"} update the item
 

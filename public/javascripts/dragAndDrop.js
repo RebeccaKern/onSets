@@ -1,24 +1,17 @@
 function rollCubes() {
 
-    console.log("in rollCubes");
-
     var u = "rollingCubes";
     $.ajax({
     url: u,
     type: 'GET',
     success: function(result) {
       if (result){
-        console.log("we have a result");
-        console.log(result);
         // resourcesArray = result;
-        // console.log(resourcesArray);
         var socket = io();
         socket.emit('rolledCubes', result);
       }
     }
     });
-
-    console.log("do we ever get a response");
 
 //     colorCubeSides1 = new Array();
 //     colorCubeSides2 = new Array();

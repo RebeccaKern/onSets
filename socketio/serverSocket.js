@@ -1,11 +1,9 @@
 exports.init = function(io) {
-    console.log('in exports');
     var currentPlayers = 0;
     var ordinal = 0;
 	io.sockets.on('connection', function(socket){
      ++currentPlayers;
      ++ordinal;
-     console.log("someboday connected here");
      socket.emit('players', { number: currentPlayers, o: ordinal});
      socket.broadcast.emit('players', { number: currentPlayers, o: ordinal});
 	socket.on('chat message', function(msg){
@@ -32,11 +30,8 @@ exports.init = function(io) {
         socket.broadcast.emit('updateTurn', data);
     });
     socket.on('cardsDealt', function(data){
-        console.log("made it server side of cardsDealt");
-        console.log(data);
         socket.emit('cardsDealt', data);
         socket.broadcast.emit('cardsDealt', data);
-        console.log("we are broadcasting live");
     });
 
     socket.on('disconnect', function () {

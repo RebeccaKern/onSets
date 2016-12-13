@@ -10,20 +10,6 @@ var mongoClient = require('mongodb').MongoClient;
  */
 var connection_string = 'user:password@ds159507.mlab.com:59507/beccahomework';
 
-//'localhost:27017/nameOfMyDb';
-
-/*
- * If OPENSHIFT env variables have values, then this app must be running on 
- * OPENSHIFT.  Therefore use the connection info in the OPENSHIFT environment
- * variables to replace the connection_string.
- */
-// if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD){
-//   connection_string = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
-//   process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
-//   process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
-//   process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
-//   process.env.OPENSHIFT_APP_NAME;
-// }
 // Global variable of the connected database
 var mongoDB; 
 

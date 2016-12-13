@@ -1,11 +1,9 @@
-// window.playerIdName = null;
 window.onload = function() {
 
     // detecting for mobile
     // http://stackoverflow.com/questions/3514784/what-is-the-best-way-to-detect-a-mobile-device-in-jquery
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         $("#mobileCheck").html("You are going mobile");
-        console.log("here");
         alert("You are on a mobile device so you'll only be able to watch.");
         location.href='/play';
     }
@@ -15,7 +13,6 @@ window.onload = function() {
     $('#signup').click(function() {
         $("#signup").hide();
         $("#login").hide();
-        //document.getElementById('login').style.visibility = 'hidden';
         $("#signupForm").show();
 
     });
@@ -23,21 +20,16 @@ window.onload = function() {
         $("#login").hide();
         $("#signup").hide();
         $("#loginForm").show();
-
-        // $("#login").hide();
-
     });
 
     $('#loginSubmitButton').click(function() {
         var name = $("#usernameLogin").val();
-        console.log(name);
-        console.log(getScore(seeIfPlayerExists, name));
+        getScore(seeIfPlayerExists, name);
     });  
 
      $('#signupSubmitButton').click(function() {
         var name = $("#usernameSignup").val();
-        console.log(name);
-        console.log(getScore(handleData, name));
+        getScore(handleData, name);
     });  
 
 }
@@ -47,49 +39,38 @@ window.onload = function() {
         if(typeof result === 'object'){
                 localStorage.clear();
                 window.playerIdName = name;
-                console.log("playerIdName is " + window.playerIdName);
                 localStorage.username = name;
             $("#playerDisplay").html("Awesome you exist!");
             location.href='/play';
         }
         else{
             $("#playerDisplay").html(name + " does not exist. Click the sign up button instead.");
-            console.log("That player doesn't exist yet");
             $("#login").show();
             $("#signup").show();
         }
-        //nextCallback(pScore);
-                //document.getElementById("yourScore").innerHTML = result[0].playerscore;
     }
 
    
 
 function makePlayer(name, score){
     var u = "player/"+name+"/"+score;
-    console.log("in make player function");
     $.ajax({
     url: u,
     type: 'PUT',
     success: function(result) {
-      console.log("was successful in post function");
     }
     });
 }
 
         function getScore(handleData, name){
-        //$("#yourScore").append("yolo");
-        console.log("in get score");
         var u = "player/"+name;
         pScore = "nothing";
         pName = name;
-        console.log(u);
             $.ajax({
             url: u,
             //async: false,
             type: 'GET',
             success: function(result) {
-                console.log(result);
-                console.log(pName);
                 handleData(result, pName);
             }
         });
@@ -98,46 +79,26 @@ function makePlayer(name, score){
     }
 
     function handleData(result, name){
-        console.log("we too have a result");
-        console.log(result);
     if(typeof result === 'object'){
         pScore = result[0].playerscore;
-        console.log("p" + pScore);
         $("#playerDisplay").html("This player already exists - try a different username");
     }
     else{
-        console.log(name);
         makePlayer(name, 0);
         $("#playerDisplay").html(name + " has been created! Now you can login.");
-        console.log("That player doesn't exist yet");
         $("#login").show();
          $("#signupForm").hide();
     }
-        //nextCallback(pScore);
-                //document.getElementById("yourScore").innerHTML = result[0].playerscore;
     }
 
 
     $('#submitButton').click(function() {
         var name = $("#username").val();
-        console.log(name);
-        console.log(getScore(handleData, name));
     });
 
-
-    //console.log("p3" + pScore);
-
-    //console.log(document.getElementById("yourScore").innerHTML);
-    //var currentScore = document.getElementById("yourScore").innerHTML;
-    //console.log(currentScore);
-
-    console.log("in startscreen.js");
-
     $(function() { 
-        console.log("in this function");
         var i = loaditems();
         $("#nameDisplay").html(i);
-        console.log("should be displaying name");
     });
 
     window.applicationCache.addEventListener("updateready",function(){
@@ -146,7 +107,6 @@ function makePlayer(name, score){
     });
 
     $("#submitButton").on("click", function(e){
-        console.log("submitButton clicked");
         e.preventDefault();
         saveName();
     });

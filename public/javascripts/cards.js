@@ -1,7 +1,4 @@
 function drawCards(){
-    console.log("in draw Cards");
-
-    //location.href='dealCards';
 
     var u = "dealCards";
     $.ajax({
@@ -9,20 +6,11 @@ function drawCards(){
     type: 'GET',
     success: function(result) {
       if (result){
-        console.log("we have a result");
-        console.log(result);
         var socket = io();
         socket.emit('cardsDealt', result);
       }
     }
     });
-
-    console.log("do we ever get a response");
-    //console.log(repsonse);
-
-    //location.href='play';
-
-    
 
     // var socket = io();
     // socket.emit('cardsDealt', dealCardsArray);

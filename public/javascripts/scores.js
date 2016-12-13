@@ -1,13 +1,10 @@
 $( function() {
-    //console.log(winningPlayer);
-    //document.getElementById("winner").innerHTML = winningPlayer;
     $("#winner").append("why not working");
     $.ajax({
         url: "player/",
         type: 'GET',
         success: function(result) {
           if (result){
-            //$("#gotten").append(result[0].playername);
             for (var i = 0; i < result.length; i++) {
             // similar to http://www.w3schools.com/jsref/met_table_insertrow.asp
                 var table = document.getElementById("playerScores");
@@ -19,15 +16,7 @@ $( function() {
                 cell2.innerHTML = result[i].playerscore;
             }
           } 
-          else{
-            $("#gotten").html("<h1>Nothing Present</h1>");
-          }
         }
     });
-    $("#gotten").append("yolo");
-    $("winner").append("yolo2");
 
-    // function winnerIs(playerNum){
-    //     document.getElementById("winner").innerHTML = playerNum;
-    // }
 });

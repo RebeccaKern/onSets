@@ -9,7 +9,6 @@ function setTimer(){
       if (time <= 0)
       {
          clearInterval(counter);
-         //counter ended, do something here
          return;
       }
       var socket = io();
