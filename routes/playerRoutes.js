@@ -17,25 +17,14 @@ exports.init = function(app) {
  // app.delete("/player/:playername", deleteplayer);
  }
 
-// getAllplayers = function(request, response){
-//     var allplayers = players.retrieveAll();
-//     if (allplayers.length === 0){
-//         response.send(false);
-//     }
-//     else{
-//         var completeplayers = {};
-//         for (var player in allplayers){
-//             completeplayers[allplayers[player].name] = {breed:allplayers[player].breed, owner:allplayers[player].owner}
-//         }
-//         response.render('showplayers.ejs', {'allplayers': completeplayers});
-//     }
-// }
+
 doCreate = function(req, res){
   console.log("1. Starting doCreate in dbRoutes");
   console.log(req.params);
   if (Object.keys(req.params).length == 0) {
     console.log("but i got here");
-    res.render('message', {title: 'Mongo Demo', obj: "No create message body found"});
+    res.send(modelData);
+    //res.render('message', {title: 'Mongo Demo', obj: "No create message body found"});
     return;
   }
   console.log("Am I here?");
@@ -44,7 +33,7 @@ doCreate = function(req, res){
                           function(result) {
                             // result equal to true means create was successful
                           var success = (result ? "Create successful" : "Create unsuccessful");
-                          res.render('message', {title: 'Mongo Demo', obj: success});
+                          //res.render('message', {title: 'Mongo Demo', obj: success});
                             console.log("2. Done with callback in dbRoutes create");
                           });
   console.log("3. Done with doCreate in dbRoutes");

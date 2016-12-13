@@ -17,33 +17,61 @@ window.onload = function() {
 
     });
 
+    $('#loginSubmitButton').click(function() {
+
+    });  
+
+    $('#signupSubmitButton').click(function() {
+        var name = $("#usernameSignup").val();
+        console.log(name);
+        console.log(getScore(handleData, name));
+    });  
+
+function makePlayer(name, score){
+    var u = "player/"+name+"/"+score;
+    console.log("in make player function");
+    $.ajax({
+    url: u,
+    type: 'PUT',
+    success: function(result) {
+      console.log("was successful in post function");
+    }
+    });
+}
 
         function getScore(handleData, name){
         //$("#yourScore").append("yolo");
         console.log("in get score");
         var u = "player/"+name;
         pScore = "nothing";
+        pName = name;
         console.log(u);
             $.ajax({
             url: u,
             //async: false,
             type: 'GET',
             success: function(result) {
-                handleData(result);
+                console.log(result);
+                console.log(pName);
+                handleData(result, pName);
             }
         });
         return pScore;
 
     }
 
-    function handleData(result){
+    function handleData(result, name){
         console.log("we too have a result");
         console.log(result);
     if(typeof result === 'object'){
         pScore = result[0].playerscore;
         console.log("p" + pScore);
+        $("#playerDisplay").html("This player already exists - try a different username");
     }
     else{
+        console.log(name);
+        makePlayer(name, 0);
+        $("#playerDisplay").html("Creating new player with your username" + name);
         console.log("That player doesn't exist yet");
     }
         //nextCallback(pScore);
