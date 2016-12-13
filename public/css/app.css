@@ -2,6 +2,10 @@ h1 {
   color: black;
 }
 
+#playerDisplay, #mobileCheck{
+  color: black;
+}
+
 table{
   color: black;
 }
