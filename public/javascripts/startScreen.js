@@ -1,49 +1,5 @@
-    // function getScore(handleData){
-    //     //$("#yourScore").append("yolo");
-    //     console.log("in get score");
-    //     var u = "player/"+"Matt";
-    //     pScore = "nothing";
-    //     console.log(u);
-    //         $.ajax({
-    //         url: u,
-    //         //async: false,
-    //         type: 'GET',
-    //         success: function(result) {
-    //             handleData(result);
-    //             // console.log("we too have a result");
-    //             // console.log(result);
-    //             // console.log(result[0].playerscore);
-    //             // pScore = result[0].playerscore;
-    //             // console.log("p" + pScore);
-    //             // document.getElementById("yourScore").innerHTML = result[0].playerscore;
-            
-    //         }
-    //     });
-    //     return pScore;
-
-    // }
-
-    // function handleData(result){
-    //     console.log("we too have a result");
-    //     console.log(result);
-    //     console.log(result[0].playerscore);
-    //     pScore = result[0].playerscore;
-    //     console.log("p" + pScore);
-    //     //nextCallback(pScore);
-    //             //document.getElementById("yourScore").innerHTML = result[0].playerscore;
-    // }
-
-    // console.log(getScore(handleData));
-    //var i = 0;
-    // while (pScore === "nothing"){
-    //    i++;
-    // }
-    //console.log("p2" + pScore);
-
-    //playerNumber = null;
-
 window.onload = function() {
-
+    $("#loginForm").hide();
 
         function getScore(handleData, name){
         //$("#yourScore").append("yolo");
@@ -57,17 +13,6 @@ window.onload = function() {
             type: 'GET',
             success: function(result) {
                 handleData(result);
-                // console.log("we too have a result");
-                // console.log(result);
-                // console.log(result[0].playerscore);
-                // pScore = result[0].playerscore;
-                // console.log("p" + pScore);
-                // document.getElementById("yourScore").innerHTML = result[0].playerscore;
-             // } 
-             // else {
-             //    console.log("not handling request");
-             //    $("#yourScore").append("This sucks");
-             // } 
             }
         });
         return pScore;

@@ -18,22 +18,25 @@
 </head>
 
 <body>
+<div id='login' class="large-6 text-center">
+  <h1> On-Sets </h1>
+  <input type="button" id="login" class="button round" value="Login" />
+  <input type="button" id="sign up" class="button round" value="Sign Up" />
 
-<h1> On-Sets </h1>
-<form>
-  First name:<br>
-  <input id="username" type="text" name="firstname">
-  <br>
-  <input type="button" id="submitButton" value="Submit" />
-  <!-- onclick="location.href='index.html';"  onclick="location.href='/play';" -->
-</form>
+  <form id="loginForm">
+    First name:<br>
+    <input id="username" type="text" name="firstname">
+    <br>
+    <input type="button" id="submitButton" value="Submit" />
+    <!-- onclick="location.href='index.html';"  onclick="location.href='/play';" -->
+  </form>
 
-<div id = "nameDisplay">
+  <div id = "nameDisplay">
+  </div>
+
+  <div id = "yourScore">
+  </div>
 </div>
-
-<div id = "yourScore">
-</div>
-
 
   <script src="javascripts/vendor/what-input.js"></script>
   <script src="javascripts/vendor/foundation.js"></script>
