@@ -8,8 +8,10 @@
             type: 'GET',
             success: function(result) {
               if (result){
+                console.log("we too have a result");
                 console.log(result);
                 console.log(result[0].playerscore);
+                pScore = result[0].playerscore;
                 document.getElementById("yourScore").innerHTML = result[0].playerscore;
              } 
              else {
