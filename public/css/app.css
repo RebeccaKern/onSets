@@ -2,6 +2,23 @@ h1 {
   color: black;
 }
 
+table{
+  color: black;
+}
+
+table tr:nth-child(odd) {background: #ecc9d6}
+
+button{
+    background-color: #F4D03F; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
 body {
   overflow: hidden;
 
@@ -42,7 +59,14 @@ body {
   background-color: #c50a3c;
 }
 
-#login, #signup {
-    width: 70%;
+#usernameLogin, #usernameSignup{
+  width: 20%;
+ margin: auto;
+}
+
+#login, #signup, #loginSubmitButton, #signupSubmitButton {
+    width: 20%;
+    background-color: #c50a3c;
+    border: none;
 }
 
