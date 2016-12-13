@@ -76,9 +76,9 @@ var game = {
             imgArray.push(colorCubesArray2[i]);
         }
 
-        for(var i = 0;i<numberCubesArray.length;i++){
-            imgArray.push(numberCubesArray[i]);
-        }
+        // for(var i = 0;i<numberCubesArray.length;i++){
+        //     imgArray.push(numberCubesArray[i]);
+        // }
         for(var i = 0;i<operationCubesArray.length;i++){
             imgArray.push(operationCubesArray[i]);
         }
