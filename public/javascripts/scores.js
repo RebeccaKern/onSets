@@ -19,6 +19,7 @@ $( function() {
                 var cell1 = row.insertCell(0);
                 var cell2 = row.insertCell(1);
                 cell1.innerHTML = result[i].playername;
+                cell2.style.textAlign = 'center'
                 cell2.innerHTML = result[i].playerscore;
             }
           } 
