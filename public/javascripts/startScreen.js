@@ -18,8 +18,28 @@ window.onload = function() {
     });
 
     $('#loginSubmitButton').click(function() {
-
+        var name = $("#usernameLogin").val();
+        console.log(name);
+        console.log(getScore(seeIfPlayerExists, name));
+        localStorage.clear();
+        localStorage.username = name;
     });  
+
+    function seeIfPlayerExists(result, name){
+        $("#loginForm").hide();
+        if(typeof result === 'object'){
+            $("#playerDisplay").html("Awesome you exist!");
+            location.href='/play';
+        }
+        else{
+            $("#playerDisplay").html(name + " does not exist. Click the sign up button instead.");
+            console.log("That player doesn't exist yet");
+            $("#login").show();
+            $("#signup").show();
+        }
+        //nextCallback(pScore);
+                //document.getElementById("yourScore").innerHTML = result[0].playerscore;
+    }
 
     $('#signupSubmitButton').click(function() {
         var name = $("#usernameSignup").val();
@@ -71,8 +91,10 @@ function makePlayer(name, score){
     else{
         console.log(name);
         makePlayer(name, 0);
-        $("#playerDisplay").html("Creating new player with your username" + name);
+        $("#playerDisplay").html(name + " has been created! Now you can login.");
         console.log("That player doesn't exist yet");
+        $("#login").show();
+         $("#signupForm").hide();
     }
         //nextCallback(pScore);
                 //document.getElementById("yourScore").innerHTML = result[0].playerscore;
