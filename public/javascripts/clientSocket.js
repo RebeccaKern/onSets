@@ -88,6 +88,7 @@ socket.on('rolledCubes', function (data){
         drop: function(e, ui) {
             console.log("playerTurn "+ playerTurn);
             console.log("playerNumber "+ playerNumber);
+            if (playerTurn === playerNumber){
             //drop the cube to a certain spot and disable dragging
             var $drop = $(this);
             var array = eval(this.id + 'Array');
@@ -119,7 +120,11 @@ socket.on('rolledCubes', function (data){
 
             //use sockets to broadcast the cube that moved to all clients
             var socket = io();
-            socket.emit('cubes', movedCube);     
+            socket.emit('cubes', movedCube);  
+            }  
+            else{
+                alert("It's not your turn");
+            } 
         }
 
     });
