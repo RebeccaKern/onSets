@@ -71,7 +71,7 @@ socket.on('players', function (data){
     else if (playerNumber === null){
         playerNumber = data.number;
     }
-    $(t).html("You are player " + playerNumber + "and there are " + data.o);
+    $(t).html("You are player " + playerNumber + "and there are " + data.number);
     globalFunction();
 });
 

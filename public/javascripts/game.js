@@ -36,6 +36,7 @@ $( function() {
         playerNumber = null;
 
         winningPlayer = null;
+        mobileDevices = 0;
 
 
 function updatePlayerTurn(){

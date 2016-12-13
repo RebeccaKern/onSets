@@ -4,8 +4,7 @@ function challengeNow(player){
 
 function challengeNever(player){
     win(2);
-    socket.emit('winner', player);
-    
+    socket.emit('winner', player);  
 }
 
 function win(player){
