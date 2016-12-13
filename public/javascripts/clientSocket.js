@@ -96,10 +96,15 @@ socket.on('players', function (data){
 
     var t = document.getElementById("numPlayers");
     console.log("when do i hit " + playerNumber);
+    mobileNum = 0;
+    // detecting for mobile
+    // http://stackoverflow.com/questions/3514784/what-is-the-best-way-to-detect-a-mobile-device-in-jquery
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         playerNumber = -1;
+        mobileNum += 1;
     }
     else if (playerNumber === null){
+        console.log("mobileNum" + mobileNum);
         playerNumber = data.number;
     }
     //console.log(playerNumber);

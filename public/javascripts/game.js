@@ -55,12 +55,19 @@ function globalFunction(){
             //playerNumber = null;
 
 
-    if (playerNumber === 1){
+    if (playerNumber !== 1){
       $('#dealCards').hide();
     }
 
-    if (playerNumber === 2){
+    if (playerNumber !== 2){
       $('#rollCubes').hide();
+    }
+
+    if ((playerNumber !== 1) && (playerNumber !== 2)) {
+      console.log(playerNumber);
+      $('#challengeNever').hide();
+      $('#challengeNow').hide();
+      $('#reset').hide();
     }
 
     console.log(playerNumber);
