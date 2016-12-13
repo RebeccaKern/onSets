@@ -1,0 +1,33 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Draggable - Default functionality</title>
+  <link rel="stylesheet" href="css/foundation.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <!-- This is my example client-side javascript that uses socket.io -->
+  <script src="/javascripts/clientSocket.js"></script>
+  <script src="/javascripts/scores.js"></script>
+  <script src="/javascripts/game.js"></script>
+</head>
+
+<body>
+<table id="playerScores">
+    <tr>
+        <th style="text-align:left">Player</th>
+        <th>Score</th>
+    </tr>
+</table>
+  <p>And the winner is...</p>
+  <div id="winner"></div>
+  <div id="gotten"></div>
+  
+
+</body>

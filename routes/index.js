@@ -1,12 +1,18 @@
 exports.init = function(app) {
  app.get("/", index);
  app.get("/play", loadGame);
+ app.get("/scores", scoresPage);
  app.post("/saveUser/:username", savingUser);
 }
 
 index = function(request, response) {
   console.log(request.session);
   response.render('startScreen.ejs');
+}
+
+scoresPage = function(request, response) {
+  console.log("route updated to scores");
+  response.render('scores.ejs');
 }
 
 savingUser = function(request, response) {

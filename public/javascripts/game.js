@@ -6,7 +6,8 @@ $( function() {
     requiredArray = new Array();
     permittedArray = new Array();
 
-    playerNumber = null;
+
+
 
     $('#reset').click(function() {
         setTimer();
@@ -31,16 +32,12 @@ $( function() {
     })
 
         playerTurn = 1;
-    document.getElementById("playerTurnText").innerHTML = "Player " + playerTurn +"'s turn";
+    //document.getElementById("playerTurnText").innerHTML = "Player " + playerTurn +"'s turn";
 
 });
+        playerNumber = null;
+        winningPlayer = null;
 
-
-function win(player){
-    console.log("in win");
-    var socket = io();
-    socket.emit('winner', player);
-}
 
 function updatePlayerTurn(){
     if (playerTurn === 1){
@@ -53,6 +50,9 @@ function updatePlayerTurn(){
 }
 
 function globalFunction(){
+
+            //playerNumber = null;
+
 
     if (playerNumber === 1){
       $('#dealCards').hide();

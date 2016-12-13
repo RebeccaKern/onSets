@@ -11,7 +11,6 @@ exports.init = function(io) {
     socket.on('cubes', function(data){
         socket.emit('cubes', data);
         socket.broadcast.emit('cubes', data);
-        console.log(data);
     });
     socket.on('evil', function(data){
         socket.emit('evil', data);

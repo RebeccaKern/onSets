@@ -6,7 +6,12 @@ socket.on('updateTurn', function (data) {
 
 socket.on('winner', function (data) {
     console.log("in winner");
-    alert("player " + data + "wins!");
+    console.log(location.href);
+    location.href='/scores';
+    console.log(location.href);
+    winningPlayer = data;
+    console.log(winningPlayer);
+    //alert("player " + data + "wins!");
 });
 
 socket.on('cubes', function (data) {
@@ -36,6 +41,7 @@ socket.on('players', function (data){
     $(t).html("You are player " + playerNumber);
     //$('#playerNumber').html("Your name is " + loaditems());
     globalFunction();
+
     // function loaditems() {
     //     var pN = document.getElementById("numPlayers");
     //     if (pN.textContent == 1){
