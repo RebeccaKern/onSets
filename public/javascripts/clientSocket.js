@@ -5,6 +5,16 @@ socket.on('updateTurn', function (data) {
 });
 
 socket.on('winner', function (data) {
+    var name = "Matt";
+    var score = 300;
+    var u = "player/"+name+"/"+score;
+    $.ajax({
+    url: u,
+    type: 'POST',
+    success: function(result) {
+      console.log("was successful");
+    }
+    });
     console.log("in winner");
     console.log(location.href);
     location.href='/scores';
