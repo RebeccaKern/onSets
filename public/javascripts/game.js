@@ -6,9 +6,6 @@ $( function() {
     requiredArray = new Array();
     permittedArray = new Array();
 
-
-
-
     $('#reset').click(function() {
         setTimer();
     });
