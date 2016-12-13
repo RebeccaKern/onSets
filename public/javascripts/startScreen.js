@@ -1,3 +1,4 @@
+// window.playerIdName = null;
 window.onload = function() {
 
     // detecting for mobile
@@ -30,13 +31,15 @@ window.onload = function() {
         var name = $("#usernameLogin").val();
         console.log(name);
         console.log(getScore(seeIfPlayerExists, name));
-        localStorage.clear();
-        localStorage.username = name;
     });  
 
     function seeIfPlayerExists(result, name){
         $("#loginForm").hide();
         if(typeof result === 'object'){
+                localStorage.clear();
+                window.playerIdName = name;
+                console.log("playerIdName is " + window.playerIdName);
+                localStorage.username = name;
             $("#playerDisplay").html("Awesome you exist!");
             location.href='/play';
         }
@@ -198,4 +201,6 @@ function makePlayer(name, score){
         return JSON.parse(localStorage.player1 || "[]");
     }
 
+
 }
+

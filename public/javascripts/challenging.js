@@ -5,6 +5,7 @@ function challengeNow(player){
 
 function challengeNever(player){
     win(2);
+    socket.emit('winner', player);
     //alert("Player " + player + " challenged never.");
     
 }

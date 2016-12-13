@@ -1,8 +1,15 @@
 //console.log(playerNumber);
+//console.log("playerNameId" + window.playerNameId);
+
+console.log("username" + localStorage.username);
+username = localStorage.username;
+console.log(username);
 
 $( function() {
 
-    //console.log(playerNumber);
+    console.log("playerNameId" + window.playerNameId);
+
+
     //initialize all arrays here
     resourcesArray = new Array();
     forbiddenArray = new Array();

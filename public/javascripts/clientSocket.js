@@ -55,13 +55,22 @@ function updatePlayer(name, score){
 socket.on('winner', function (data) {
     console.log("looking for winner");
     var name = "Becca";
+    console.log("winner is " + data + "and you are " + playerNumber);
+    //alert("You are " + playerNumber +" and the winner was " + data + (data === playerNumber));
+    if (data === playerNumber){
+        console.log("and the winning username is " + username);
+        getPlayerScore(handleData, username);
+    }
+    location.href='/scores';
+    
+
     //updatePlayer(name, 5);
     //console.log(getScore(name));
     //console.log(getScore("Matt"));
     // console.log($("#gotten").html());
     // console.log($("#socketTest").html());
-    var score = 1;//getScore(name);
-    getPlayerScore(handleData, name);
+    //var score = 1;//getScore(name);
+    
     // var u = "player/"+name+"/"+score;
     // $.ajax({
     // url: u,
