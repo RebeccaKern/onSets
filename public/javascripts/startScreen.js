@@ -45,10 +45,10 @@
 window.onload = function() {
 
 
-        function getScore(handleData){
+        function getScore(handleData, name){
         //$("#yourScore").append("yolo");
         console.log("in get score");
-        var u = "player/"+"Ji";
+        var u = "player/"+name;
         pScore = "nothing";
         console.log(u);
             $.ajax({
@@ -87,11 +87,16 @@ window.onload = function() {
         //nextCallback(pScore);
                 //document.getElementById("yourScore").innerHTML = result[0].playerscore;
     }
-    
-    console.log(getScore(handleData));
 
 
-    console.log("p3" + pScore);
+    $('#submitButton').click(function() {
+        var name = $("#username").val();
+        console.log(name);
+        console.log(getScore(handleData, name));
+    });
+
+
+    //console.log("p3" + pScore);
 
     console.log(document.getElementById("yourScore").innerHTML);
     var currentScore = document.getElementById("yourScore").innerHTML;
