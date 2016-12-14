@@ -92,7 +92,6 @@ socket.on('evil', function (data){
 socket.on('cardsDealt', function (data){
     $('#dealCards').hide();
     var c = document.getElementById('cards');
-
     for(var i = 0;i<data.length;i++)
     {
         img = new Image();
@@ -104,7 +103,6 @@ socket.on('cardsDealt', function (data){
 
 socket.on('rolledCubes', function (data){
     $('#rollCubes').hide();
-
     var r = document.getElementById('resources');
     resourcesArray = data;
     for(var k = 0;k<data.length;k++)

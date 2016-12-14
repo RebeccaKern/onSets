@@ -1,7 +1,4 @@
-
 username = localStorage.username;
-
-
 $( function() {
 
     //initialize all arrays here
@@ -26,6 +23,8 @@ $( function() {
         rollCubes();
         $('#rollCubes').hide();
     });
+    $('#challengeNever').hide();
+    $('#challengeNow').hide();
 
     $('#challengeNow').click(function(){
         challengeNow(playerNumber);
@@ -35,12 +34,16 @@ $( function() {
     });
 
         playerTurn = 1;
+        
 
 });
         playerNumber = null;
 
         winningPlayer = null;
         mobileDevices = 0;
+
+
+
 
 
 function updatePlayerTurn(){
@@ -50,10 +53,19 @@ function updatePlayerTurn(){
     else if (playerTurn === 2){
         playerTurn = 1;
     }
+    if (playerTurn !== playerNumber){
+        $('#challengeNever').hide();
+        $('#challengeNow').hide();
+    }
+    else{
+        $('#challengeNever').show();
+        $('#challengeNow').show();
+    }
     socket.emit('updateTurn', playerTurn);
 }
 
 function globalFunction(){
+
 
     if (playerNumber !== 1){
       $('#dealCards').hide();
@@ -68,5 +80,6 @@ function globalFunction(){
       $('#challengeNow').hide();
       $('#reset').hide();
     }
+
 
 }
