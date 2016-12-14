@@ -9,6 +9,10 @@ exports.init = function(io) {
 	socket.on('chat message', function(msg){
 	   io.emit('chat message', msg);
 	});
+    socket.on('challenge', function(data){
+        socket.emit('challenge', data);
+        socket.broadcast.emit('challenge', data);
+    });
     socket.on('goal', function(data){
         socket.emit('goal', data);
         socket.broadcast.emit('goal', data);

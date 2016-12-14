@@ -39,7 +39,7 @@ function updatePlayer(name, score){
 
 
 socket.on('winner', function (data) {
-    var name = "Becca";
+    alert("Player " + playerNumber + " " + username +" wins");
     if (data === playerNumber){
         getPlayerScore(handleData, username);
     }
@@ -87,6 +87,19 @@ socket.on('players', function (data){
 socket.on('evil', function (data){
     var t = document.getElementById("time");
     $(t).html(data);
+});
+
+socket.on('challenge', function (data){
+    //confirm("what");
+    if (((data.playerNum === 1) || (data.playerNum === 2)) && (data.playerNum !== playerNumber)){
+        var answer = confirm("Player " + data.playerNum + " challenged " + data.type +". Do you agree or disagree?");
+        if (answer){
+            win(data.playerNum);
+        }
+        else{
+            win(playerNumber);
+        }
+    }
 });
 
 socket.on('cardsDealt', function (data){

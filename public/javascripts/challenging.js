@@ -1,10 +1,14 @@
 function challengeNow(player){
-    win(1);
+    challengeObject = {playerNum: player, type:"now"}
+    socket.emit("challenge", challengeObject);
+    //win(1);
 }
 
 function challengeNever(player){
-    win(2);
-    socket.emit('winner', player);  
+    challengeObject = {playerNum: player, type:"never"}
+    socket.emit("challenge", challengeObject);
+    //win(2);
+    //socket.emit('winner', player);  
 }
 
 function win(player){
