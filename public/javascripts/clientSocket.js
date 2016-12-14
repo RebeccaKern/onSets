@@ -71,14 +71,20 @@ socket.on('players', function (data){
         playerNumber = -1;
     }
     else if (playerNumber === null){
+        if (data.number === 3){
+            playerNumber = 2;
+        }
+        else{
         playerNumber = data.number;
+        }
     }
     if (playerNumber === 1 || playerNumber === 2){
 
-        $(t).html("Welcome " + username +  " you are player " + playerNumber);
+        $(t).html("Welcome " + username +  " you are player " + playerNumber + "and there are current players" + data.number + "and this many attached" + data.o);
     }
     else{
-        $(t).html("Spectator Status");
+        $(t).html("Welcome " + username +  " you are player " + playerNumber + "and there are current players" + data.number + "and this many attached" + data.o);
+        //$(t).html("Spectator Status");
     }
     globalFunction();
 });
