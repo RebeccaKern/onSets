@@ -47,7 +47,7 @@ socket.on('winner', function (data) {
 });
 
 socket.on('cubes', function (data) {
-
+    $("#time").html("");
     //update images to reflect cube movement
     var newLocation = document.getElementById(data.class);
     img = new Image();
@@ -84,13 +84,16 @@ socket.on('players', function (data){
 });
 
 
-socket.on('evil', function (data){
+socket.on('countdown', function (data){
     var t = document.getElementById("time");
-    $(t).html(data);
+    $(t).html("Countdown: " + data );
+    if (data === 1){
+        alert("Time is up! Player switch.");
+        updatePlayerTurn();
+    }
 });
 
 socket.on('challenge', function (data){
-    //confirm("what");
     if (((data.playerNum === 1) || (data.playerNum === 2)) && (data.playerNum !== playerNumber)){
         var answer = confirm("Player " + data.playerNum + " challenged " + data.type +". Do you agree or disagree?");
         if (answer){

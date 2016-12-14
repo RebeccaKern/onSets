@@ -23,6 +23,7 @@ $( function() {
         rollCubes();
         $('#rollCubes').hide();
     });
+    $('#reset').hide();
     $('#challengeNever').hide();
     $('#challengeNow').hide();
 
@@ -56,10 +57,12 @@ function updatePlayerTurn(){
     if (playerTurn !== playerNumber){
         $('#challengeNever').hide();
         $('#challengeNow').hide();
+        $('#reset').show();
     }
     else{
         $('#challengeNever').show();
         $('#challengeNow').show();
+        $('#reset').hide();
     }
     socket.emit('updateTurn', playerTurn);
 }

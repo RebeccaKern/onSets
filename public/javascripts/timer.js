@@ -12,7 +12,11 @@ function setTimer(){
          return;
       }
       var socket = io();
-      socket.emit('evil', time);
+      socket.emit('countdown', time);
+      socket.on('cubes', function (data){
+        console.log("does htis work");
+        clearInterval(counter);
+      });
     
     }
 }

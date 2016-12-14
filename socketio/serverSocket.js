@@ -21,9 +21,9 @@ exports.init = function(io) {
         socket.emit('cubes', data);
         socket.broadcast.emit('cubes', data);
     });
-    socket.on('evil', function(data){
-        socket.emit('evil', data);
-        socket.broadcast.emit('evil', data);
+    socket.on('countdown', function(data){
+        socket.emit('countdown', data);
+        socket.broadcast.emit('countdown', data);
     });
     socket.on('winner', function(data){
         socket.emit('winner', data);
